@@ -34,9 +34,23 @@
     A 260 260 0 0 1 0 260
     Z
   "/>
-<!--BLUE stepped element-->
-  <rect class="blue" x="22.5" y="-272" width="97" height="195"/>
-  <rect class="blue" x="-116.5" y="74" width="98" height="206"/>
+<!--BLUE stepped element - converted to paths with arcs-->
+<!--Upper blue shape: arc top edge, aligned with diagonal-->
+  <path class="blue" d="
+    M 22.5 -259.02
+    A 260 260 0 0 1 119.5 -230.91
+    L 119.5 -63.91
+    L 22.5 -63.91
+    Z
+  "/>
+<!--Lower blue shape: arc bottom edge, aligned with diagonal-->
+  <path class="blue" d="
+    M -116.5 61.59
+    L -18.5 61.59
+    L -18.5 259.34
+    A 260 260 0 0 1 -116.5 232.44
+    Z
+  "/>
 <!--HELPER GUIDES - Drawn last so they appear on top-->
   <g id="guides">
 <!--Outer circle-->
