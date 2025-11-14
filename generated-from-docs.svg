@@ -1,0 +1,51 @@
+<svg viewBox="-300 -300 600 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- SVG generated from markdown documentation -->
+  <!-- Center: (0, 0), Outer radius: 260px, Inner radius: 163px -->
+
+  <defs>
+    <style>
+      .orange { fill: #E4572E; }
+      .green { fill: #A1C181; }
+      .blue { fill: #4F6D7A; }
+    </style>
+  </defs>
+
+  <!-- LEFT SHAPE (ORANGE) - Ring segment with vertical edges -->
+  <!-- Starts at top center, vertical edge down, follows inner circle counter-clockwise, vertical edge up, follows outer circle clockwise -->
+  <path class="orange" d="
+    M 0 -260
+    L 0 -163
+    A 163 163 0 0 0 -141.5 80.9
+    L -141.5 218.1
+    A 260 260 0 0 1 0 -260
+    Z
+  "/>
+
+  <!-- RIGHT SHAPE (GREEN) - Ring segment with vertical edges (symmetric to orange) -->
+  <!-- Starts at bottom center, vertical edge up, follows inner circle clockwise, vertical edge down, follows outer circle counter-clockwise -->
+  <path class="green" d="
+    M 0 260
+    L 0 163
+    A 163 163 0 0 0 141.5 -80.9
+    L 141.5 -218.1
+    A 260 260 0 0 1 0 260
+    Z
+  "/>
+
+  <!-- BLUE SHAPE (CENTER) - Complex stepped shape with diagonal edges -->
+  <!-- Based on diagonal lines: y = -0.4778x ± 53.75 -->
+  <!-- Inner vertical edges at x = ±22.5, Outer vertical edges at x = ±119.5 -->
+  <path class="blue" d="
+    M 22.5 -259.02
+    A 260 260 0 0 1 119.5 -230.91
+    L 119.5 -64.50
+    A 97 97 0 0 1 64.31 22.99
+    L -22.5 64.50
+    L -22.5 259.02
+    A 260 260 0 0 1 -119.5 230.91
+    L -119.5 64.50
+    A 97 97 0 0 1 -64.31 -22.99
+    L 22.5 -64.50
+    Z
+  "/>
+</svg>
