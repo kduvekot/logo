@@ -57,7 +57,7 @@
   <path class="pie-preview" d="
     M -18.5 61.59
     L -116.5 61.59
-    A 98 98 0 0 0 -60.33 -24.48
+    A 98 98 0 0 1 -60.33 -24.48
     Z
   "/>
 <!--HELPER GUIDES - Drawn last so they appear on top-->
