@@ -46,13 +46,13 @@ When ignoring white pixels (RGB ≥ 250,250,250):
 
 Three primary colors detected:
 
-1. **Orange/Red** (#E85030 approximate)
+1. **Red-Orange** (#E4572E)
    - RGB range: r > 180, g < r-30, b < 100
 
-2. **Green** (#9BBF6B approximate)
+2. **Soft Green** (#A1C181)
    - RGB range: g > 140, g > r, g > b
 
-3. **Blue-Gray** (#4D677B approximate)
+3. **Blue-Gray** (#4F6D7A)
    - RGB range: b > 100, r < 150
 
 ## Shape Segments (at mid-radius 215px)

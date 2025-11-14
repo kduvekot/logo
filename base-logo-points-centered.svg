@@ -3,9 +3,9 @@
 <!--Outer radius: 260px, Inner radius: 163px-->
   <defs>
     <style>
-      .orange { fill: #E85030; }
-      .green { fill: #9BBF6B; }
-      .blue { fill: #4D677B; }
+      .orange { fill: #E4572E; }
+      .green { fill: #A1C181; }
+      .blue { fill: #4F6D7A; }
       .guide { stroke: #FF00FF; stroke-width: 1; fill: none; opacity: 0.5; }
       .guide-line { stroke: #00FFFF; stroke-width: 1; stroke-dasharray: 5,5; opacity: 0.5; }
       .guide-vertical { stroke: #FFFF00; stroke-width: 1; stroke-dasharray: 3,3; opacity: 0.7; }
