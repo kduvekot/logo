@@ -60,6 +60,14 @@
     A 98 98 0 0 1 -60.33 -24.48
     Z
   "/>
+<!--PIE SHAPE PREVIEW - Upper box (mirrored)-->
+<!--Arc from bottom-right to perpendicular intersection with bottom diagonal-->
+  <path class="pie-preview" d="
+    M 22.5 -63.91
+    L 119.5 -63.91
+    A 97 97 0 0 1 64.01 21.49
+    Z
+  "/>
 <!--HELPER GUIDES - Drawn last so they appear on top-->
   <g id="guides">
 <!--Outer circle-->
