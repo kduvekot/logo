@@ -9,8 +9,10 @@
       .guide { stroke: #FF00FF; stroke-width: 1; fill: none; opacity: 0.5; }
       .guide-line { stroke: #00FFFF; stroke-width: 1; stroke-dasharray: 5,5; opacity: 0.5; }
       .guide-vertical { stroke: #FFFF00; stroke-width: 1; stroke-dasharray: 3,3; opacity: 0.7; }
+      .guide-diagonal { stroke: #FF6600; stroke-width: 2; stroke-dasharray: 10,5; opacity: 0.8; }
       .guide-point { fill: #FF0000; }
       .diagonal-guide-point { fill: #FF0000; }
+      .intersection-point { fill: #00FF00; }
       .reference-image { opacity: 0.3; }
     </style>
   </defs>
@@ -87,5 +89,24 @@
     <circle class="diagonal-guide-point" cx="-18.5" cy="62" r="2"/>
     <circle class="diagonal-guide-point" cx="0" cy="52" r="2"/>
     <circle class="diagonal-guide-point" cx="22.5" cy="42" r="2"/>
+<!--DIAGONAL LINES (orange dashed) - edges of blue center element-->
+<!--Top diagonal: y = -0.476x - 53.2, perpendicular distance between lines: 95.57px-->
+    <line class="guide-diagonal" x1="-251.36" y1="66.47" x2="210.07" y2="-153.21"/>
+    <text x="-140" y="-10" fill="#FF6600" font-size="11" text-anchor="middle" transform="rotate(-25.5 -140 -10)">top diagonal</text>
+<!--Bottom diagonal: y = -0.486x + 52.6, symmetric about y=0-->
+    <line class="guide-diagonal" x1="-209.21" y1="154.38" x2="250.62" y2="-69.22"/>
+    <text x="140" y="95" fill="#FF6600" font-size="11" text-anchor="middle" transform="rotate(-25.9 140 95)">bottom diagonal</text>
+<!--INTERSECTION POINTS (green) - notable crossings-->
+<!--Diagonal intersections with inner circle-->
+    <circle class="intersection-point" cx="-161.28" cy="23.59" r="2.5"/>
+    <circle class="intersection-point" cx="119.99" cy="-110.32" r="2.5"/>
+    <circle class="intersection-point" cx="-119.56" cy="110.79" r="2.5"/>
+    <circle class="intersection-point" cx="160.97" cy="-25.63" r="2.5"/>
+<!--Diagonal intersections with vertical line x=-141.5-->
+    <circle class="intersection-point" cx="-141.5" cy="14.17" r="2.5"/>
+    <circle class="intersection-point" cx="-141.5" cy="121.45" r="2.5"/>
+<!--Diagonal intersections with vertical line x=141.5-->
+    <circle class="intersection-point" cx="141.5" cy="-120.56" r="2.5"/>
+    <circle class="intersection-point" cx="141.5" cy="-16.16" r="2.5"/>
   </g>
 </svg>
