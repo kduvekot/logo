@@ -1,0 +1,56 @@
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Center: 511.5, 454 -->
+  <!-- Outer radius: 260px, Inner radius: 163px -->
+  <!-- Angles: GREEN (0-89°, 311-359°), ORANGE (131-270°), BLUE (96-123°, 277-303°) -->
+  <!-- Gaps at: 90-95°, 124-130°, 271-276°, 304-310° -->
+
+  <defs>
+    <style>
+      .orange { fill: #E85030; }
+      .green { fill: #9BBF6B; }
+      .blue { fill: #4D677B; }
+    </style>
+  </defs>
+
+  <!-- ORANGE segment: 131° to 270° -->
+  <path class="orange" d="
+    M 511.5 194
+    L 511.5 291
+    L 404.56 577.02
+    A 163 163 0 0 1 340.92 650.22
+    L 340.92 650.22
+    A 260 260 0 0 0 511.5 194
+    Z
+  "/>
+
+  <!-- GREEN segment: 311° to 89° (wraps around 0°) -->
+  <path class="green" d="
+    M 682.08 257.78
+    A 260 260 0 0 1 771.5 454
+    A 260 260 0 0 1 516.04 713.96
+    L 514.34 616.98
+    A 163 163 0 0 0 674.5 454
+    A 163 163 0 0 0 618.44 330.98
+    Z
+  "/>
+
+  <!-- BLUE stepped element: Two arc segments for now -->
+  <!-- Upper segment: 277° to 303° -->
+  <path class="blue" d="
+    M 543.19 195.94
+    A 260 260 0 0 1 653.11 235.95
+    L 600.28 317.30
+    A 163 163 0 0 0 531.36 292.21
+    Z
+  "/>
+
+  <!-- Lower segment: 96° to 123° -->
+  <path class="blue" d="
+    M 484.32 712.58
+    A 260 260 0 0 1 369.89 672.05
+    L 422.72 590.70
+    A 163 163 0 0 0 494.46 616.11
+    Z
+  "/>
+
+</svg>
