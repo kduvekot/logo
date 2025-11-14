@@ -35,17 +35,17 @@
     A 260 260 0 0 1 0 260
     Z
   "/>
-<!--BLUE middle element - complete unified shape with diagonal arcs-->
+<!--BLUE middle element - complete unified shape with diagonal arcs (symmetrized)-->
   <path class="blue" d="
     M 22.5 -259.02
     A 260 260 0 0 1 119.5 -230.91
     L 119.5 -63.91
     A 97 97 0 0 1 64.01 21.49
-    L -18.5 61.59
-    L -18.5 259.34
-    A 260 260 0 0 1 -116.5 232.44
-    L -116.5 61.59
-    A 98 98 0 0 1 -60.33 -24.48
+    L -22.5 63.91
+    L -22.5 259.02
+    A 260 260 0 0 1 -119.5 230.91
+    L -119.5 63.91
+    A 97 97 0 0 1 -64.01 -21.49
     L 22.5 -63.91
     Z
   "/>
