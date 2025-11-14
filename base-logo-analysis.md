@@ -123,11 +123,18 @@ The logo features **vertical straight edges** (constant x-coordinate) at the gap
 - **Structure**: 2 vertical lines + 2 circular arcs
 
 ### Middle Shape (Blue)
-- Complex stepped/zigzag pattern
-- Creates vertical flow from top to bottom
-- Has multiple vertical edge segments
-- Connects the gap between orange and green shapes
-- Features horizontal steps creating a dynamic pattern
+- **Structure**: 10 edges total (6 straight, 4 arcs)
+- **Outer vertical edges**: x = ±119.5
+- **Inner vertical edges**: x = ±22.5
+- **Width**: 97 pixels (matching ring width)
+- **Components**:
+  - 2 outer circle arcs (radius 260) at top and bottom
+  - 2 outer vertical edges extending from outer arcs
+  - 2 "pie arcs" (radius 97) tangent to diagonal lines
+  - 2 diagonal connectors bridging upper/lower sections
+  - 2 inner vertical edges
+- Creates dynamic stepped pattern connecting upper and lower sections
+- Maintains same width (97px) as orange and green ring segments
 
 ## Horizontal Scan Results
 
@@ -153,26 +160,74 @@ The orange (left) and green (right) shapes are **approximately symmetric** aroun
 - Both have vertical edges at their boundaries
 - Both follow the circular ring structure
 
-## Gap Measurements
+## Gap Measurements (Centered Coordinate System)
 
-**Left gap** (between orange and blue):
-- Starts at x = 370
-- Ends at x ≈ 395
-- Width: ~25 pixels
+In the centered system (origin at 511.5, 454):
 
-**Right gap** (between blue and green):
-- Starts at x ≈ 631
-- Ends at x = 653
-- Width: ~22 pixels
+**Four symmetric gaps** where blue shape interrupts orange/green rings:
 
-## Blue Shape Vertical Edge Analysis
+**Top center gap** (between orange and blue):
+- From x = 0 to x = 22.5
+- Width: **22.5 pixels**
 
-Scanning for long vertical runs of blue color:
+**Top outer gap** (between blue and green):
+- From x = 119.5 to x = 141.5
+- Width: **22.0 pixels**
 
-- Strong vertical presence at x = 500-600 range
-- Vertical segments exceed 200 pixels in height
-- Creates stepped pattern with alternating horizontal and vertical segments
-- Vertical edges detected at approximately: x = 395, 493, 534, 631
+**Bottom center gap** (between green and blue):
+- From x = 0 to x = -22.5
+- Width: **22.5 pixels**
+
+**Bottom outer gap** (between blue and orange):
+- From x = -119.5 to x = -141.5
+- Width: **22.0 pixels**
+
+All gaps are perfectly symmetric (180° rotational symmetry about origin).
+
+## Blue Shape Vertical Edge Analysis (Centered Coordinates)
+
+Precise vertical edge locations:
+
+**Inner vertical edges** (center of blue shape):
+- x = **±22.5**
+- These edges connect the upper and lower sections vertically
+
+**Outer vertical edges** (sides of blue shape):
+- x = **±119.5**
+- These edges extend from outer circle arcs down/up to the diagonal crossing points
+
+**Geometric properties**:
+- Width between inner edges: 45 pixels
+- Width between outer edges: 239 pixels
+- Standard width (outer to inner on same side): **97 pixels** (matches ring width)
+- Outer edges reach from outer circle arcs to y = ±64.50 (diagonal crossings)
+- Creates symmetric stepped pattern with 180° rotational symmetry
+
+## Complete Geometric Formulas
+
+All logo points can be precisely calculated from these fundamental parameters:
+
+### Primary Input Parameters
+1. **R_outer = 260 px** (outer circle radius)
+2. **R_inner = 163 px** (inner circle radius)
+3. **Width = 97 px** (standard width = R_outer - R_inner)
+4. **Center = (0, 0)** (in transformed coordinates)
+
+### Blue Shape Parameters
+5. **x_blue_inner = ±22.5** (inner vertical edges)
+6. **x_blue_outer = ±119.5** (outer vertical edges)
+
+### Orange/Green Shape Parameters
+7. **x_boundaries = ±141.5** (vertical edge boundaries)
+
+### Derived Diagonal Parameters
+8. **Diagonal slope: m = -0.4778** (calculated from perpendicular distance formula)
+9. **Diagonal intercepts: ±53.75**
+10. **Diagonal equations:**
+    - Top: y = -0.4778x - 53.75
+    - Bottom: y = -0.4778x + 53.75
+
+See `diagonal-lines-analysis.md` for complete derivation formulas.
 
 ## Additional Notes
 
@@ -181,3 +236,5 @@ Scanning for long vertical runs of blue color:
 - The blue stepped element occupies the central area
 - Anti-aliasing creates slight color gradients at edges
 - The design maintains clean separation between colored segments
+- Perfect 180° rotational symmetry about the origin
+- All three shape segments maintain the same width (97 pixels)
