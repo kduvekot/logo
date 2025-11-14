@@ -212,22 +212,25 @@ All logo points can be precisely calculated from these fundamental parameters:
 2. **R_inner = 163 px** (inner circle radius)
 3. **Width = 97 px** (standard width = R_outer - R_inner)
 4. **Center = (0, 0)** (in transformed coordinates)
+5. **Diagonal intercept = 53.75** (y-intercept of diagonal lines)
+6. **Gap ratio = 0.232** (gap_width / width)
 
-### Blue Shape Parameters
-5. **x_blue_inner = ±22.5** (inner vertical edges)
-6. **x_blue_outer = ±119.5** (outer vertical edges)
+### Derived Blue Shape Parameters (see gap-derivation-findings.md)
+- **Diagonal slope**: m = -√((2 × 53.75 / 97)² - 1) = -0.4777
+- **x_blue_outer = ±119.5** - DERIVED from diagonal ∩ inner circle intersection
+- **x_blue_inner = ±22.5** - DERIVED as x_blue_outer - width
 
-### Orange/Green Shape Parameters
-7. **x_boundaries = ±141.5** (vertical edge boundaries)
+### Derived Orange/Green Shape Parameters
+- **gap_width = 22.5** - DERIVED as width × gap_ratio (or intercept / 2.39)
+- **x_boundaries = ±141.5** - DERIVED as x_blue_outer + gap_width
 
-### Derived Diagonal Parameters
-8. **Diagonal slope: m = -0.4778** (calculated from perpendicular distance formula)
-9. **Diagonal intercepts: ±53.75**
-10. **Diagonal equations:**
-    - Top: y = -0.4778x - 53.75
-    - Bottom: y = -0.4778x + 53.75
+### Diagonal Line Equations
+- Top: y = -0.4778x - 53.75
+- Bottom: y = -0.4778x + 53.75
 
-See `diagonal-lines-analysis.md` for complete derivation formulas.
+### Documentation References
+- See `diagonal-lines-analysis.md` for complete diagonal derivation formulas
+- See `gap-derivation-findings.md` for gap position derivation analysis
 
 ## Additional Notes
 
