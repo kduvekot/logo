@@ -12,8 +12,12 @@
       .guide { stroke: #FF00FF; stroke-width: 1; fill: none; opacity: 0.5; }
       .guide-line { stroke: #00FFFF; stroke-width: 1; stroke-dasharray: 5,5; opacity: 0.5; }
       .guide-point { fill: #FF0000; }
+      .reference-image { opacity: 0.3; }
     </style>
   </defs>
+
+  <!-- REFERENCE PNG (toggle opacity to compare) -->
+  <image class="reference-image" href="base-logo.png" x="0" y="0" width="1024" height="1024" />
 
   <!-- ORANGE segment: 270° to 131° (counterclockwise) -->
   <path class="orange" d="
