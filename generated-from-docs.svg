@@ -1,7 +1,6 @@
 <svg viewBox="-300 -300 600 600" xmlns="http://www.w3.org/2000/svg">
-  <!-- SVG generated from markdown documentation -->
-  <!-- Center: (0, 0), Outer radius: 260px, Inner radius: 163px -->
-
+<!--SVG generated from markdown documentation-->
+<!--Center: (0, 0), Outer radius: 260px, Inner radius: 163px-->
   <defs>
     <style>
       .orange { fill: #E4572E; }
@@ -9,9 +8,8 @@
       .blue { fill: #4F6D7A; }
     </style>
   </defs>
-
-  <!-- LEFT SHAPE (ORANGE) - Ring segment with vertical edges -->
-  <!-- Starts at top center, vertical edge down, follows inner circle counter-clockwise, vertical edge up, follows outer circle clockwise -->
+<!--LEFT SHAPE (ORANGE) - Ring segment with vertical edges-->
+<!--Starts at top center, vertical edge down, follows inner circle counter-clockwise, vertical edge up, follows outer circle clockwise-->
   <path class="orange" d="
     M 0 -260
     L 0 -163
@@ -20,9 +18,8 @@
     A 260 260 0 0 1 0 -260
     Z
   "/>
-
-  <!-- RIGHT SHAPE (GREEN) - Ring segment with vertical edges (symmetric to orange) -->
-  <!-- Starts at bottom center, vertical edge up, follows inner circle clockwise, vertical edge down, follows outer circle counter-clockwise -->
+<!--RIGHT SHAPE (GREEN) - Ring segment with vertical edges (symmetric to orange)-->
+<!--Starts at bottom center, vertical edge up, follows inner circle clockwise, vertical edge down, follows outer circle counter-clockwise-->
   <path class="green" d="
     M 0 260
     L 0 163
@@ -31,10 +28,9 @@
     A 260 260 0 0 1 0 260
     Z
   "/>
-
-  <!-- BLUE SHAPE (CENTER) - Complex stepped shape with diagonal edges -->
-  <!-- Based on diagonal lines: y = -0.4778x ± 53.75 -->
-  <!-- Inner vertical edges at x = ±22.5, Outer vertical edges at x = ±119.5 -->
+<!--BLUE SHAPE (CENTER) - Complex stepped shape with diagonal edges-->
+<!--Based on diagonal lines: y = -0.4778x ± 53.75-->
+<!--Inner vertical edges at x = ±22.5, Outer vertical edges at x = ±119.5-->
   <path class="blue" d="
     M 22.5 -259.02
     A 260 260 0 0 1 119.5 -230.91
