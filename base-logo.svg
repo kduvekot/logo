@@ -15,7 +15,46 @@
     </style>
   </defs>
 
-  <!-- HELPER GUIDES (delete these when done) -->
+  <!-- ORANGE segment: 270° to 131° (counterclockwise) -->
+  <path class="orange" d="
+    M 511.5 194
+    A 260 260 0 0 0 340.92 650.22
+    L 404.56 577.02
+    A 163 163 0 0 1 511.5 291
+    Z
+  "/>
+
+  <!-- GREEN segment: 311° to 89° (wraps around 0°) -->
+  <path class="green" d="
+    M 682.08 257.78
+    A 260 260 0 0 1 771.5 454
+    A 260 260 0 0 1 516.04 713.96
+    L 514.34 616.98
+    A 163 163 0 0 0 674.5 454
+    A 163 163 0 0 0 618.44 330.98
+    Z
+  "/>
+
+  <!-- BLUE stepped element: Two arc segments for now -->
+  <!-- Upper segment: 277° to 303° -->
+  <path class="blue" d="
+    M 543.19 195.94
+    A 260 260 0 0 1 653.11 235.95
+    L 600.28 317.30
+    A 163 163 0 0 0 531.36 292.21
+    Z
+  "/>
+
+  <!-- Lower segment: 96° to 123° -->
+  <path class="blue" d="
+    M 484.32 712.58
+    A 260 260 0 0 1 369.89 672.05
+    L 422.72 590.70
+    A 163 163 0 0 0 494.46 616.11
+    Z
+  "/>
+
+  <!-- HELPER GUIDES (delete these when done) - Drawn last so they appear on top -->
   <g id="guides">
     <!-- Outer circle -->
     <circle class="guide" cx="511.5" cy="454" r="260" />
@@ -74,46 +113,5 @@
     <circle class="guide-point" cx="674.5" cy="454" r="2" />
     <circle class="guide-point" cx="348.5" cy="454" r="2" />
   </g>
-
-  <!-- ORANGE segment: 131° to 270° -->
-  <path class="orange" d="
-    M 511.5 194
-    L 511.5 291
-    L 404.56 577.02
-    A 163 163 0 0 1 340.92 650.22
-    L 340.92 650.22
-    A 260 260 0 0 0 511.5 194
-    Z
-  "/>
-
-  <!-- GREEN segment: 311° to 89° (wraps around 0°) -->
-  <path class="green" d="
-    M 682.08 257.78
-    A 260 260 0 0 1 771.5 454
-    A 260 260 0 0 1 516.04 713.96
-    L 514.34 616.98
-    A 163 163 0 0 0 674.5 454
-    A 163 163 0 0 0 618.44 330.98
-    Z
-  "/>
-
-  <!-- BLUE stepped element: Two arc segments for now -->
-  <!-- Upper segment: 277° to 303° -->
-  <path class="blue" d="
-    M 543.19 195.94
-    A 260 260 0 0 1 653.11 235.95
-    L 600.28 317.30
-    A 163 163 0 0 0 531.36 292.21
-    Z
-  "/>
-
-  <!-- Lower segment: 96° to 123° -->
-  <path class="blue" d="
-    M 484.32 712.58
-    A 260 260 0 0 1 369.89 672.05
-    L 422.72 590.70
-    A 163 163 0 0 0 494.46 616.11
-    Z
-  "/>
 
 </svg>
