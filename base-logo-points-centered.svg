@@ -108,6 +108,17 @@
 <!--Bottom diagonal: y = -0.4778x + 53.75, symmetric about y=0-->
     <line class="guide-diagonal" x1="-210" y1="154.08" x2="250" y2="-65.70"/>
     <text x="140" y="95" fill="#FF6600" font-size="11" text-anchor="middle" transform="rotate(-25.5 140 95)">bottom diagonal</text>
+<!--QUESTION MARKS - Points that need verification-->
+<!--Current blue shape endpoint vs where diagonal says it should be-->
+    <circle cx="119.5" cy="-63.91" r="4" fill="none" stroke="#FF00FF" stroke-width="2"/>
+    <text x="135" y="-63.91" fill="#FF00FF" font-size="12" text-anchor="start">CURRENT (119.5,-63.91)</text>
+    <line x1="119.5" y1="-63.91" x2="119.5" y2="-110.85" stroke="#FF00FF" stroke-width="2" stroke-dasharray="2,2"/>
+    <text x="135" y="-87" fill="#FF00FF" font-size="10" text-anchor="start">Δy = 46.94?</text>
+
+    <circle cx="-119.5" cy="63.91" r="4" fill="none" stroke="#FF00FF" stroke-width="2"/>
+    <text x="-135" y="63.91" fill="#FF00FF" font-size="12" text-anchor="end">CURRENT (-119.5,63.91)</text>
+    <line x1="-119.5" y1="63.91" x2="-119.5" y2="110.85" stroke="#FF00FF" stroke-width="2" stroke-dasharray="2,2"/>
+    <text x="-135" y="87" fill="#FF00FF" font-size="10" text-anchor="end">Δy = 46.94?</text>
 <!--INTERSECTION POINTS (green) - Diagonal anchor points on inner circle (r=163)-->
 <!--Top diagonal through P1 and P3-->
     <circle class="intersection-point" cx="119.5" cy="-110.85" r="2.5"/>
