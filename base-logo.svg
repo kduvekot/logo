@@ -9,8 +9,71 @@
       .orange { fill: #E85030; }
       .green { fill: #9BBF6B; }
       .blue { fill: #4D677B; }
+      .guide { stroke: #FF00FF; stroke-width: 1; fill: none; opacity: 0.5; }
+      .guide-line { stroke: #00FFFF; stroke-width: 1; stroke-dasharray: 5,5; opacity: 0.5; }
+      .guide-point { fill: #FF0000; }
     </style>
   </defs>
+
+  <!-- HELPER GUIDES (delete these when done) -->
+  <g id="guides">
+    <!-- Outer circle -->
+    <circle class="guide" cx="511.5" cy="454" r="260" />
+
+    <!-- Inner circle -->
+    <circle class="guide" cx="511.5" cy="454" r="163" />
+
+    <!-- Mid-radius circle (for reference) -->
+    <circle class="guide" cx="511.5" cy="454" r="215" />
+
+    <!-- Center point -->
+    <circle class="guide-point" cx="511.5" cy="454" r="3" />
+
+    <!-- Horizontal centerline -->
+    <line class="guide-line" x1="251.5" y1="454" x2="771.5" y2="454" />
+
+    <!-- Vertical centerline -->
+    <line class="guide-line" x1="511.5" y1="194" x2="511.5" y2="714" />
+
+    <!-- Radial lines at key angles -->
+    <!-- 0° (right) -->
+    <line class="guide-line" x1="511.5" y1="454" x2="771.5" y2="454" />
+
+    <!-- 90° (bottom) -->
+    <line class="guide-line" x1="511.5" y1="454" x2="511.5" y2="714" />
+
+    <!-- 180° (left) -->
+    <line class="guide-line" x1="511.5" y1="454" x2="251.5" y2="454" />
+
+    <!-- 270° (top) -->
+    <line class="guide-line" x1="511.5" y1="454" x2="511.5" y2="194" />
+
+    <!-- 131° (orange start) -->
+    <line class="guide-line" x1="511.5" y1="454" x2="340.92" y2="650.22" />
+
+    <!-- 311° (green start) -->
+    <line class="guide-line" x1="511.5" y1="454" x2="682.08" y2="257.78" />
+
+    <!-- 96° (blue lower start) -->
+    <line class="guide-line" x1="511.5" y1="454" x2="484.32" y2="712.58" />
+
+    <!-- 123° (blue lower end) -->
+    <line class="guide-line" x1="511.5" y1="454" x2="369.89" y2="672.05" />
+
+    <!-- 277° (blue upper start) -->
+    <line class="guide-line" x1="511.5" y1="454" x2="543.19" y2="195.94" />
+
+    <!-- 303° (blue upper end) -->
+    <line class="guide-line" x1="511.5" y1="454" x2="653.11" y2="235.95" />
+
+    <!-- Key points markers -->
+    <circle class="guide-point" cx="511.5" cy="194" r="2" />
+    <circle class="guide-point" cx="511.5" cy="291" r="2" />
+    <circle class="guide-point" cx="511.5" cy="617" r="2" />
+    <circle class="guide-point" cx="511.5" cy="714" r="2" />
+    <circle class="guide-point" cx="674.5" cy="454" r="2" />
+    <circle class="guide-point" cx="348.5" cy="454" r="2" />
+  </g>
 
   <!-- ORANGE segment: 131° to 270° -->
   <path class="orange" d="
