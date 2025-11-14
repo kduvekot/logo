@@ -68,8 +68,6 @@
     <text x="-119.5" y="-274" fill="#FFFF00" font-size="12" text-anchor="middle">-119.5</text>
     <line class="guide-vertical" x1="-22.5" y1="-260" x2="-22.5" y2="260"/>
     <text x="-22.5" y="-274" fill="#FFFF00" font-size="12" text-anchor="middle">-22.5</text>
-    <line class="guide-vertical" x1="2.5" y1="-260" x2="2.5" y2="260"/>
-    <text x="2.5" y="-274" fill="#FFFF00" font-size="12" text-anchor="middle">2.5</text>
     <line class="guide-vertical" x1="22.5" y1="-260" x2="22.5" y2="260"/>
     <text x="22.5" y="-274" fill="#FFFF00" font-size="12" text-anchor="middle">22.5</text>
     <line class="guide-vertical" x1="119.5" y1="-260" x2="119.5" y2="260"/>
