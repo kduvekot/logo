@@ -223,6 +223,86 @@ This vector points perpendicular to the diagonal, used for calculating pie arc e
 - **Outer circle arcs:** radius = Ro = Ri + W
 - **Pie arcs:** radius = W
 
+## SVG Implementation
+
+### Arc Command Syntax
+
+SVG arcs use the `A` (elliptical arc) path command with the following syntax:
+
+```
+A rx,ry x-axis-rotation large-arc-flag sweep-flag x,y
+```
+
+For circular arcs (rx = ry = radius):
+- **rx, ry**: Arc radii (equal for circles)
+- **x-axis-rotation**: 0 for circles (no rotation needed)
+- **large-arc-flag**: 0 for arcs ≤ 180°, 1 for arcs > 180°
+- **sweep-flag**: 0 for counter-clockwise, 1 for clockwise
+- **x, y**: End point coordinates
+
+### Orange Shape SVG Path
+
+```svg
+M 0,{-Ro}                                    <!-- Start: top center, outer circle -->
+L 0,{-Ri}                                    <!-- Vertical line to inner circle -->
+A {Ri},{Ri} 0 0 0 {-W(2G+1)},{y_inner}      <!-- Inner arc, counter-clockwise -->
+L {-W(2G+1)},{y_outer}                       <!-- Vertical line to outer circle -->
+A {Ro},{Ro} 0 0 1 0,{-Ro}                   <!-- Outer arc, clockwise -->
+Z                                            <!-- Close path -->
+```
+
+**Arc flags:**
+- Inner arc: `large-arc=0, sweep=0` (counter-clockwise, ≤ 180°)
+- Outer arc: `large-arc=0, sweep=1` (clockwise, ≤ 180°)
+
+### Green Shape SVG Path
+
+```svg
+M 0,{Ro}                                     <!-- Start: bottom center, outer circle -->
+L 0,{Ri}                                     <!-- Vertical line to inner circle -->
+A {Ri},{Ri} 0 0 0 {W(2G+1)},{y_inner}       <!-- Inner arc, counter-clockwise -->
+L {W(2G+1)},{y_outer}                        <!-- Vertical line to outer circle -->
+A {Ro},{Ro} 0 0 1 0,{Ro}                    <!-- Outer arc, clockwise -->
+Z                                            <!-- Close path -->
+```
+
+**Arc flags:**
+- Inner arc: `large-arc=0, sweep=0` (counter-clockwise, ≤ 180°)
+- Outer arc: `large-arc=0, sweep=1` (clockwise, ≤ 180°)
+
+**Important:** Even though green is a 180° rotation of orange, the sweep flags remain the same. Both shapes follow their circles in the same rotational direction; only the start/end positions differ.
+
+### Blue Shape SVG Path
+
+The blue shape uses four types of arcs:
+
+```svg
+M {GW},{-√[Ro²-G²W²]}                        <!-- Start: top section, outer circle -->
+A {Ro},{Ro} 0 0 1 {W(G+1)},{...}            <!-- Outer arc, clockwise -->
+L {W(G+1)},{s×GW - c}                        <!-- Vertical line to diagonal -->
+A {W},{W} 0 0 1 {...},{...}                 <!-- Pie arc, clockwise -->
+L {-GW},{-s×GW + c}                          <!-- Diagonal line -->
+L {-GW},{√[Ro²-G²W²]}                        <!-- Vertical line to bottom section -->
+A {Ro},{Ro} 0 0 1 {-W(G+1)},{...}           <!-- Outer arc, clockwise -->
+L {-W(G+1)},{-s×GW + c}                      <!-- Vertical line to diagonal -->
+A {W},{W} 0 0 1 {...},{...}                 <!-- Pie arc, clockwise -->
+L {GW},{s×GW - c}                            <!-- Diagonal line -->
+Z                                            <!-- Close path -->
+```
+
+**Arc flags:**
+- Outer arcs (radius Ro): `large-arc=0, sweep=1` (clockwise, small arcs)
+- Pie arcs (radius W): `large-arc=0, sweep=1` (clockwise, small arcs)
+
+### Arc Direction Consistency
+
+All shapes use **consistent sweep directions**:
+- **Inner circle**: sweep=0 (counter-clockwise) for orange/green ring segments
+- **Outer circle**: sweep=1 (clockwise) for all shapes
+- **Pie arcs**: sweep=1 (clockwise) for blue shape
+
+This consistency ensures that arc directions follow the natural circle geometry, regardless of whether shapes are rotated 180° from each other.
+
 ## Symmetry Properties
 
 ### 180° Rotational Symmetry
