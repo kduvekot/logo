@@ -133,26 +133,29 @@ def generate_single_logo(W, Ri, G, tx, ty, scale):
     return svg
 
 def generate_grid():
-    """Generate complete 3x3 grid SVG with all three parameters varying."""
-    # Parameter grid design:
-    # Rows: W varies (80, 100, 120)
-    # Columns: G varies (0.15, 0.20, 0.25)
-    # Ri/W ratio: increases with both row and column (1.8, 2.0, 2.2)
+    """Generate complete 4x4 grid SVG with all three parameters varying."""
+    # Parameter grid design for condensed logos:
+    # Rows: W varies (80, 100, 120, 140)
+    # Columns: G varies (0.10, 0.15, 0.20, 0.25)
+    # Ri/W ratio: increases across columns (1.35, 1.50, 1.70, 1.90)
+    # Lower Ri/W ratios = more condensed (smaller inner circle relative to width)
+    # Lower G values = narrower gaps (more solid appearance)
 
-    W_values = [80, 100, 120]
-    G_values = [0.15, 0.20, 0.25]
-    Ri_W_ratios = [1.8, 2.0, 2.2]  # Larger ratios = gentler slopes
+    W_values = [80, 100, 120, 140]
+    G_values = [0.10, 0.15, 0.20, 0.25]
+    Ri_W_ratios = [1.35, 1.50, 1.70, 1.90]  # More condensed than previous grid
 
     # Grid layout
     cell_size = 400
-    total_size = 3 * cell_size
+    total_size = 4 * cell_size
 
     svg = f'<svg width="{total_size}" height="{total_size}" viewBox="0 0 {total_size} {total_size}" xmlns="http://www.w3.org/2000/svg">\n'
-    svg += '  <!-- 3x3 Logo Parameter Exploration Grid -->\n'
-    svg += '  <!-- All three parameters vary systematically -->\n'
-    svg += '  <!-- Rows: W = 80, 100, 120 -->\n'
-    svg += '  <!-- Columns: G = 0.15, 0.20, 0.25 -->\n'
-    svg += '  <!-- Ri/W ratio: 1.8, 2.0, 2.2 (increases across columns) -->\n\n'
+    svg += '  <!-- 4x4 Logo Parameter Exploration Grid -->\n'
+    svg += '  <!-- Condensed logos with all three parameters varying systematically -->\n'
+    svg += '  <!-- Rows: W = 80, 100, 120, 140 -->\n'
+    svg += '  <!-- Columns: G = 0.10, 0.15, 0.20, 0.25 -->\n'
+    svg += '  <!-- Ri/W ratio: 1.35, 1.50, 1.70, 1.90 (increases across columns) -->\n'
+    svg += '  <!-- Slopes range from 13.7° to 33.6° (very gentle) -->\n\n'
 
     # Background
     svg += f'  <rect width="{total_size}" height="{total_size}" fill="#f5f5f5"/>\n\n'
@@ -207,7 +210,7 @@ def generate_grid():
 
     # Grid lines
     svg += '\n  <!-- Grid lines -->\n'
-    for i in range(1, 3):
+    for i in range(1, 4):
         pos = i * cell_size
         svg += f'  <line x1="{pos}" y1="0" x2="{pos}" y2="{total_size}" stroke="#ccc" stroke-width="1"/>\n'
         svg += f'  <line x1="0" y1="{pos}" x2="{total_size}" y2="{pos}" stroke="#ccc" stroke-width="1"/>\n'
@@ -218,15 +221,17 @@ def generate_grid():
 if __name__ == "__main__":
     svg_content = generate_grid()
 
-    output_file = "logo-parameter-grid-3x3.svg"
+    output_file = "logo-parameter-grid-4x4.svg"
     with open(output_file, 'w') as f:
         f.write(svg_content)
 
     print(f"Generated {output_file}")
-    print("\nParameter combinations:")
+    print("\n4x4 Grid - Condensed Logo Parameter Exploration")
+    print("=" * 60)
     print("All three parameters vary systematically:")
-    print("  Rows (W):         80, 100, 120")
-    print("  Columns (G):      0.15, 0.20, 0.25")
-    print("  Ri/W ratios:      1.8, 2.0, 2.2")
-    print("\nDiagonal slopes are kept ≤ 45° (gentler angles)")
+    print("  Rows (W):         80, 100, 120, 140")
+    print("  Columns (G):      0.10, 0.15, 0.20, 0.25")
+    print("  Ri/W ratios:      1.35, 1.50, 1.70, 1.90")
+    print("\nDiagonal slopes range from 13.7° to 33.6° (very gentle)")
+    print("More condensed logos with smaller inner circles and narrower gaps")
     print("Text labels positioned in upper left corner of each cell")
