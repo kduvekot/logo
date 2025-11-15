@@ -1,0 +1,235 @@
+<svg viewBox="-300 -300 600 600" xmlns="http://www.w3.org/2000/svg">
+<!--EXPERIMENTAL LOGO WITH VARIABLE-BASED PARAMETERS-->
+<!--
+═══════════════════════════════════════════════════════════════════════
+GIVEN PARAMETERS:
+═══════════════════════════════════════════════════════════════════════
+  W = 100 (base width)
+  r_inner = 2W = 200
+  r_outer = 3W = 300
+  gap = W/3 = 100/3 ≈ 33.333
+
+═══════════════════════════════════════════════════════════════════════
+DERIVED VERTICAL EDGE POSITIONS:
+═══════════════════════════════════════════════════════════════════════
+  x_blue_inner = gap = 100/3 ≈ 33.333
+  x_blue_outer = x_blue_inner + W = 100/3 + 100 = 400/3 ≈ 133.333
+  x_orange_green = x_blue_outer + gap = 400/3 + 100/3 = 500/3 ≈ 166.667
+
+═══════════════════════════════════════════════════════════════════════
+DIAGONAL LINE CALCULATION:
+═══════════════════════════════════════════════════════════════════════
+  Constraint 1: Diagonal passes through point on inner circle
+    P1 = (x_blue_outer, -√(r_inner² - x_blue_outer²))
+       = (400/3, -√(40000 - 160000/9))
+       = (400/3, -√(200000/9))
+       = (400/3, -100√20/3)
+       ≈ (133.333, -149.071)
+
+  Constraint 2: Perpendicular distance between parallel diagonals = W
+    For lines y = sx ± c with perpendicular distance d:
+    d = 2c / √(1 + s²)
+    Therefore: c = Wd√(1 + s²) / 2 = 50√(1 + s²)
+
+  Constraint 3: Top diagonal passes through P1
+    -100√20/3 = s × (400/3) - c
+    c = (400s + 100√20) / 3
+
+  Solving for slope s:
+    50√(1 + s²) = (400s + 100√20) / 3
+    150√(1 + s²) = 400s + 100√20
+    22500(1 + s²) = (400s + 100√20)²
+    22500 + 22500s² = 160000s² + 80000s√20 + 200000
+    0 = 137500s² + 80000s√20 + 177500
+    0 = 55s² + 32s√20 + 71
+    0 = 55s² + 64s√5 + 71
+
+  Solution (using quadratic formula):
+    s = [-64√5 ± √(20480 - 15620)] / 110
+    s = [-64√5 ± √4860] / 110
+    s = [-64√5 ± 18√15] / 110
+    s = -(32√5 - 9√15) / 55 ≈ -0.6672
+
+  Intercept:
+    c = 50√(1 + 0.6672²) = 50√1.445 ≈ 60.107
+
+DIAGONAL EQUATIONS:
+  Top diagonal: y = -0.6672x - 60.107
+  Bottom diagonal: y = -0.6672x + 60.107
+
+═══════════════════════════════════════════════════════════════════════
+-->
+  <defs>
+    <style>
+      .orange { fill: #E4572E; }
+      .green { fill: #A1C181; }
+      .blue { fill: #4F6D7A; }
+    </style>
+  </defs>
+
+<!--═══════════════════════════════════════════════════════════════════════
+LEFT SHAPE (ORANGE) - Ring segment with vertical edges
+═══════════════════════════════════════════════════════════════════════
+
+PATH STRUCTURE:
+  1. Start at top center of outer circle
+  2. Vertical line down to inner circle
+  3. Arc counter-clockwise along inner circle
+  4. Vertical line up to outer circle
+  5. Arc clockwise along outer circle back to start
+
+POINT FORMULAS:
+
+Point 1 - Top center outer circle:
+  (0, -r_outer) = (0, -300)
+
+Point 2 - Top center inner circle:
+  (0, -r_inner) = (0, -200)
+
+Point 3 - Left boundary on inner circle:
+  (-x_orange_green, √(r_inner² - x_orange_green²))
+  = (-166.667, √(40000 - 27777.78))
+  = (-166.667, √12222.22)
+  = (-166.667, 110.553)
+
+Point 4 - Left boundary on outer circle:
+  (-x_orange_green, √(r_outer² - x_orange_green²))
+  = (-166.667, √(90000 - 27777.78))
+  = (-166.667, √62222.22)
+  = (-166.667, 249.444)
+
+Arc parameters:
+  - Inner arc: radius 200, counter-clockwise from (0,-200) to (-166.667, 110.553)
+  - Outer arc: radius 300, clockwise from (-166.667, 249.444) to (0, -300)
+-->
+  <path class="orange" d="
+    M 0 -300
+    L 0 -200
+    A 200 200 0 0 0 -166.667 110.553
+    L -166.667 249.444
+    A 300 300 0 0 1 0 -300
+    Z
+  "/>
+
+<!--═══════════════════════════════════════════════════════════════════════
+RIGHT SHAPE (GREEN) - Ring segment with vertical edges (symmetric to orange)
+═══════════════════════════════════════════════════════════════════════
+
+PATH STRUCTURE: (180° rotation of orange shape)
+  1. Start at bottom center of outer circle
+  2. Vertical line up to inner circle
+  3. Arc clockwise along inner circle
+  4. Vertical line down to outer circle
+  5. Arc counter-clockwise along outer circle back to start
+
+POINT FORMULAS:
+
+Point 1: (0, r_outer) = (0, 300)
+Point 2: (0, r_inner) = (0, 200)
+Point 3: (x_orange_green, -√(r_inner² - x_orange_green²)) = (166.667, -110.553)
+Point 4: (x_orange_green, -√(r_outer² - x_orange_green²)) = (166.667, -249.444)
+-->
+  <path class="green" d="
+    M 0 300
+    L 0 200
+    A 200 200 0 0 0 166.667 -110.553
+    L 166.667 -249.444
+    A 300 300 0 0 1 0 300
+    Z
+  "/>
+
+<!--═══════════════════════════════════════════════════════════════════════
+BLUE SHAPE (CENTER) - Complex stepped shape with diagonal edges
+═══════════════════════════════════════════════════════════════════════
+
+PATH STRUCTURE: 10-edge closed path with 180° rotational symmetry
+  1. Start on outer circle at x = x_blue_inner
+  2. Outer circle arc (CW) to x = x_blue_outer
+  3. Vertical line toward center to y = diagonal_top(x_blue_inner)
+  4. Pie arc (radius W) to endpoint on bottom diagonal
+  5. Diagonal line along bottom diagonal to x = -x_blue_inner
+  6. Vertical line away from center to outer circle
+  7-10. Symmetric pattern for bottom half (180° rotation)
+
+KEY COORDINATES:
+
+Point 1 - Start at outer circle, x = x_blue_inner:
+  (x_blue_inner, -√(r_outer² - x_blue_inner²))
+  = (33.333, -√(90000 - 1111.09))
+  = (33.333, -√88888.91)
+  = (33.333, -298.145)
+
+Point 2 - Outer arc endpoint, x = x_blue_outer:
+  (x_blue_outer, -√(r_outer² - x_blue_outer²))
+  = (133.333, -√(90000 - 17777.69))
+  = (133.333, -√72222.31)
+  = (133.333, -268.743)
+
+Point 3 - Vertical line endpoint (where diagonal crosses inner edge):
+  y_cross = slope × x_blue_inner - c
+          = -0.6672 × 33.333 - 60.107
+          = -22.24 - 60.107
+          = -82.347
+  Point: (x_blue_outer, y_cross) = (133.333, -82.347)
+
+Point 4 - Pie arc endpoint:
+  Calculated by perpendicular offset from (x_blue_inner, y_cross)
+  Perpendicular unit vector: (-slope, 1) / ||(-slope, 1)||
+    = (0.6672, 1) / √(0.6672² + 1²)
+    = (0.6672, 1) / 1.202
+    = (0.555, 0.832)
+  Endpoint = (x_blue_inner, y_cross) + W × perpendicular_unit
+           = (33.333, -82.347) + 100 × (0.555, 0.832)
+           = (33.333 + 55.5, -82.347 + 83.2)
+           = (88.833, 0.853)
+  [Verification: on bottom diagonal? y = -0.6672×88.833 + 60.107 = 0.837 ≈ 0.853 ✓]
+
+Point 5 - Diagonal line endpoint at opposite inner edge:
+  y_opposite = slope × (-x_blue_inner) + c
+             = -0.6672 × (-33.333) + 60.107
+             = 22.24 + 60.107
+             = 82.347
+  Point: (-x_blue_inner, y_opposite) = (-33.333, 82.347)
+
+Point 6 - Vertical line to bottom outer circle:
+  (-x_blue_inner, √(r_outer² - x_blue_inner²))
+  = (-33.333, 298.145)
+
+Point 7 - Outer arc endpoint:
+  (-x_blue_outer, √(r_outer² - x_blue_outer²))
+  = (-133.333, 268.743)
+
+Point 8 - Vertical line to diagonal crossing:
+  (-x_blue_outer, y_opposite) = (-133.333, 82.347)
+
+Point 9 - Pie arc endpoint (opposite perpendicular direction):
+  Endpoint = (-x_blue_inner, y_opposite) + W × (-perpendicular_unit)
+           = (-33.333, 82.347) + 100 × (-0.555, -0.832)
+           = (-33.333 - 55.5, 82.347 - 83.2)
+           = (-88.833, -0.853)
+
+Point 10 - Diagonal line back to starting side:
+  (x_blue_inner, y_cross) = (33.333, -82.347)
+
+Then path closes back to Point 1 (implicit Z command)
+
+ARC PARAMETERS:
+  - Outer arcs: radius 300
+  - Pie arcs: radius 100 (= W)
+  - Arc flags for outer arcs: 0 0 1 (small arc, clockwise)
+  - Arc flags for pie arcs: 0 0 1 (small arc, clockwise)
+-->
+  <path class="blue" d="
+    M 33.333 -298.145
+    A 300 300 0 0 1 133.333 -268.743
+    L 133.333 -82.347
+    A 100 100 0 0 1 88.833 0.853
+    L -33.333 82.347
+    L -33.333 298.145
+    A 300 300 0 0 1 -133.333 268.743
+    L -133.333 82.347
+    A 100 100 0 0 1 -88.833 -0.853
+    L 33.333 -82.347
+    Z
+  "/>
+</svg>
