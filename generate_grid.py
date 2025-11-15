@@ -20,8 +20,8 @@ def calculate_diagonal_slope_and_intercept(W, Ri, G):
     s1 = (-b + math.sqrt(discriminant)) / (2*a)
     s2 = (-b - math.sqrt(discriminant)) / (2*a)
 
-    # Choose the slope (typically the negative one for our orientation)
-    s = s1 if s1 < 0 else s2
+    # Choose the slope with smaller absolute value (gentler slope)
+    s = s2 if abs(s2) < abs(s1) else s1
 
     # Calculate intercept
     intercept = W * math.sqrt(1 + s**2) / 2
@@ -133,13 +133,15 @@ def generate_single_logo(W, Ri, G, tx, ty, scale):
     return svg
 
 def generate_grid():
-    """Generate complete 3x3 grid SVG."""
-    # Fixed parameter
-    W = 100
+    """Generate complete 3x3 grid SVG with all three parameters varying."""
+    # Parameter grid design:
+    # Rows: W varies (80, 100, 120)
+    # Columns: G varies (0.15, 0.20, 0.25)
+    # Ri/W ratio: increases with both row and column (1.8, 2.0, 2.2)
 
-    # Varying parameters
-    Ri_values = [180, 220, 260]
-    G_values = [0.2, 0.3, 0.35]
+    W_values = [80, 100, 120]
+    G_values = [0.15, 0.20, 0.25]
+    Ri_W_ratios = [1.8, 2.0, 2.2]  # Larger ratios = gentler slopes
 
     # Grid layout
     cell_size = 400
@@ -147,9 +149,10 @@ def generate_grid():
 
     svg = f'<svg width="{total_size}" height="{total_size}" viewBox="0 0 {total_size} {total_size}" xmlns="http://www.w3.org/2000/svg">\n'
     svg += '  <!-- 3x3 Logo Parameter Exploration Grid -->\n'
-    svg += '  <!-- W = 100 (constant) -->\n'
-    svg += '  <!-- Rows: Ri = 180, 220, 260 -->\n'
-    svg += '  <!-- Columns: G = 0.2, 0.3, 0.35 -->\n\n'
+    svg += '  <!-- All three parameters vary systematically -->\n'
+    svg += '  <!-- Rows: W = 80, 100, 120 -->\n'
+    svg += '  <!-- Columns: G = 0.15, 0.20, 0.25 -->\n'
+    svg += '  <!-- Ri/W ratio: 1.8, 2.0, 2.2 (increases across columns) -->\n\n'
 
     # Background
     svg += f'  <rect width="{total_size}" height="{total_size}" fill="#f5f5f5"/>\n\n'
@@ -161,13 +164,16 @@ def generate_grid():
         svg += f'  <text x="{x}" y="30" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold">G = {G:.2f}</text>\n'
 
     # Row headers and logos
-    for row, Ri in enumerate(Ri_values):
+    for row, W in enumerate(W_values):
         # Row header
         y = row * cell_size + cell_size / 2
-        svg += f'\n  <!-- Row {row+1}: Ri = {Ri} -->\n'
-        svg += f'  <text x="15" y="{y}" text-anchor="start" font-family="monospace" font-size="16" font-weight="bold" transform="rotate(-90 15 {y})">Ri = {Ri}</text>\n'
+        svg += f'\n  <!-- Row {row+1}: W = {W} -->\n'
+        svg += f'  <text x="15" y="{y}" text-anchor="start" font-family="monospace" font-size="16" font-weight="bold" transform="rotate(-90 15 {y})">W = {W}</text>\n'
 
         for col, G in enumerate(G_values):
+            # Calculate Ri based on W and the column's ratio
+            Ri = int(W * Ri_W_ratios[col])
+
             # Calculate position
             tx = col * cell_size + cell_size / 2
             ty = row * cell_size + cell_size / 2
@@ -175,20 +181,29 @@ def generate_grid():
             # Calculate scale to fit logo in cell
             Ro = Ri + W
             logo_diameter = 2 * Ro
-            available_space = cell_size - 100  # Leave margin for labels
+            available_space = cell_size - 120  # Leave margin for labels
             scale = available_space / logo_diameter
 
             # Generate logo
             svg += generate_single_logo(W, Ri, G, tx, ty, scale)
 
-            # Add parameter label below each logo
-            label_y = (row + 1) * cell_size - 60
-            svg += f'  <text x="{tx}" y="{label_y}" text-anchor="middle" font-family="monospace" font-size="11" fill="#666">'
+            # Add parameter label in upper left corner of cell, outside outer circle
+            label_x = col * cell_size + 10
+            label_y = row * cell_size + 20
+            svg += f'  <text x="{label_x}" y="{label_y}" text-anchor="start" font-family="monospace" font-size="10" fill="#333">'
             svg += f'W={W}</text>\n'
-            svg += f'  <text x="{tx}" y="{label_y + 14}" text-anchor="middle" font-family="monospace" font-size="11" fill="#666">'
+            svg += f'  <text x="{label_x}" y="{label_y + 12}" text-anchor="start" font-family="monospace" font-size="10" fill="#333">'
             svg += f'Ri={Ri}</text>\n'
-            svg += f'  <text x="{tx}" y="{label_y + 28}" text-anchor="middle" font-family="monospace" font-size="11" fill="#666">'
+            svg += f'  <text x="{label_x}" y="{label_y + 24}" text-anchor="start" font-family="monospace" font-size="10" fill="#333">'
             svg += f'G={G:.2f}</text>\n'
+
+            # Calculate and display diagonal slope
+            s, c = calculate_diagonal_slope_and_intercept(W, Ri, G)
+            angle_deg = abs(math.atan(s)) * 180 / math.pi
+            svg += f'  <text x="{label_x}" y="{label_y + 36}" text-anchor="start" font-family="monospace" font-size="9" fill="#999">'
+            svg += f'slope={s:.3f}</text>\n'
+            svg += f'  <text x="{label_x}" y="{label_y + 46}" text-anchor="start" font-family="monospace" font-size="9" fill="#999">'
+            svg += f'angle={angle_deg:.1f}°</text>\n'
 
     # Grid lines
     svg += '\n  <!-- Grid lines -->\n'
@@ -209,6 +224,9 @@ if __name__ == "__main__":
 
     print(f"Generated {output_file}")
     print("\nParameter combinations:")
-    print("W = 100 (constant)")
-    print("Rows (Ri):    180, 220, 260")
-    print("Columns (G):  0.2, 0.3, 0.35")
+    print("All three parameters vary systematically:")
+    print("  Rows (W):         80, 100, 120")
+    print("  Columns (G):      0.15, 0.20, 0.25")
+    print("  Ri/W ratios:      1.8, 2.0, 2.2")
+    print("\nDiagonal slopes are kept ≤ 45° (gentler angles)")
+    print("Text labels positioned in upper left corner of each cell")
