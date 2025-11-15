@@ -1,102 +1,15 @@
 <svg viewBox="-300 -300 600 600" xmlns="http://www.w3.org/2000/svg">
-<!--═══════════════════════════════════════════════════════════════════════
-LOGO PARAMETERIZATION - GENERAL FORMULAS
-═══════════════════════════════════════════════════════════════════════
+<!--
+  EXPERIMENTAL LOGO - Variable-based design
 
-This logo is fully defined by three independent parameters:
-  W  = ring width (base unit for all measurements)
-  Ri = inner circle radius
-  G  = gap proportion (gap size as a fraction of W)
+  Complete documentation: See logo-design.md
 
-═══════════════════════════════════════════════════════════════════════
-ORIGINAL PNG IMAGE PARAMETERS:
-═══════════════════════════════════════════════════════════════════════
-  W  = 97
-  Ri = 163
-  G  = 22.5/97 ≈ 0.2319587629 (or approximately 0.232)
+  Parameters:
+    W  = 100  (ring width)
+    Ri = 200  (inner radius)
+    G  = 1/3  (gap proportion)
 
-═══════════════════════════════════════════════════════════════════════
-CURRENT EXPERIMENTAL PARAMETERS:
-═══════════════════════════════════════════════════════════════════════
-  W  = 100
-  Ri = 200
-  G  = 1/3 ≈ 0.3333333333
-
-═══════════════════════════════════════════════════════════════════════
-DERIVED PARAMETERS (in terms of W, Ri, G):
-═══════════════════════════════════════════════════════════════════════
-
-Circle radii:
-  Ro = Ri + W                          (outer circle radius)
-
-Gap and vertical edge positions:
-  gap            = G × W               (gap width)
-  x_blue_inner   = ±G × W              (blue shape inner vertical edges)
-  x_blue_outer   = ±W(G + 1)           (blue shape outer vertical edges)
-  x_orange_green = ±W(2G + 1)          (orange/green boundary edges)
-
-Diagonal line equations:
-  Form: y = sx ± c where s is slope, c is y-intercept
-
-  Constraint 1: Diagonal passes through point P1 on inner circle
-    P1 = (W(G+1), -√[Ri² - W²(G+1)²])
-
-  Constraint 2: Perpendicular distance between diagonals = W
-    For parallel lines y = sx ± c, perpendicular distance d = 2c/√(1+s²)
-    Therefore: c = W√(1+s²)/2
-
-  Constraint 3: Top diagonal passes through P1
-    -√[Ri² - W²(G+1)²] = s×W(G+1) - c
-
-  Solving: c = [s×W(G+1) + √[Ri² - W²(G+1)²]]
-
-  Combining constraints:
-    W√(1+s²)/2 = s×W(G+1) + √[Ri² - W²(G+1)²]
-
-  Let: H = √[Ri² - W²(G+1)²]  (height of P1 on inner circle)
-  Then: W√(1+s²)/2 = s×W(G+1) + H
-
-  Squaring both sides:
-    W²(1+s²)/4 = [s×W(G+1) + H]²
-    W²(1+s²)/4 = s²W²(G+1)² + 2s×W(G+1)×H + H²
-
-  Rearranging:
-    W²/4 + W²s²/4 = s²W²(G+1)² + 2s×W(G+1)×H + H²
-    W²s²/4 - s²W²(G+1)² = 2s×W(G+1)×H + H² - W²/4
-    s²W²[1/4 - (G+1)²] = 2s×W(G+1)×H + H² - W²/4
-    s²W²[(1 - 4(G+1)²)/4] = 2s×W(G+1)×H + H² - W²/4
-
-  This is a quadratic in s. For the current parameters:
-    W = 100, Ri = 200, G = 1/3
-    H = √[200² - 100²(4/3)²] = √[40000 - 10000×16/9] = √[40000 - 160000/9]
-      = √[200000/9] = 100√20/3 ≈ 149.071
-
-  Solving the quadratic yields:
-    s ≈ -0.6672
-    c ≈ 60.107
-
-  DIAGONAL EQUATIONS (for current parameters):
-    Top diagonal:    y = -0.6672x - 60.107
-    Bottom diagonal: y = -0.6672x + 60.107
-
-═══════════════════════════════════════════════════════════════════════
-POINT FORMULAS (all in terms of W, Ri, G):
-═══════════════════════════════════════════════════════════════════════
-
-Perpendicular unit vector for diagonal:
-  Direction of diagonal: (1, s)
-  Perpendicular direction: (-s, 1)
-  Magnitude: √(s² + 1)
-  Perpendicular unit vector: u_perp = (-s, 1)/√(s² + 1)
-
-Circle intersection formulas:
-  For circle of radius R at x-coordinate a:
-    y = ±√(R² - a²)
-
-Diagonal crossing formulas:
-  Top diagonal at x = a:    y_top = s×a - c
-  Bottom diagonal at x = a: y_bot = s×a + c
-
+  Coordinate system: Origin (0,0) at center of circles
 -->
   <defs>
     <style>
@@ -106,36 +19,8 @@ Diagonal crossing formulas:
     </style>
   </defs>
 
-<!--═══════════════════════════════════════════════════════════════════════
-LEFT SHAPE (ORANGE) - Ring segment with vertical edges
-═══════════════════════════════════════════════════════════════════════
-
-PATH STRUCTURE:
-  1. Start at (0, -Ro) - top center of outer circle
-  2. Vertical line down to (0, -Ri) - top center of inner circle
-  3. Arc CCW along inner circle to (-x_orange_green, y_inner)
-  4. Vertical line up to (-x_orange_green, y_outer)
-  5. Arc CW along outer circle back to start
-
-POINT FORMULAS:
-
-Point 1: (0, -Ro)
-  = (0, -(Ri + W))
-
-Point 2: (0, -Ri)
-
-Point 3: (-x_orange_green, √(Ri² - x_orange_green²))
-  = (-W(2G+1), √[Ri² - W²(2G+1)²])
-
-Point 4: (-x_orange_green, √(Ro² - x_orange_green²))
-  = (-W(2G+1), √[(Ri+W)² - W²(2G+1)²])
-
-CURRENT VALUES (W=100, Ri=200, G=1/3):
-  Point 1: (0, -300)
-  Point 2: (0, -200)
-  Point 3: (-166.667, 110.553)
-  Point 4: (-166.667, 249.444)
--->
+  <!-- Orange ring segment (left) -->
+  <!-- Vertices: (0,-Ro), (0,-Ri), (-W(2G+1),y_inner), (-W(2G+1),y_outer) -->
   <path class="orange" d="
     M 0 -300
     L 0 -200
@@ -145,36 +30,8 @@ CURRENT VALUES (W=100, Ri=200, G=1/3):
     Z
   "/>
 
-<!--═══════════════════════════════════════════════════════════════════════
-RIGHT SHAPE (GREEN) - Ring segment with vertical edges
-═══════════════════════════════════════════════════════════════════════
-
-PATH STRUCTURE: 180° rotation of orange shape
-  1. Start at (0, Ro) - bottom center of outer circle
-  2. Vertical line up to (0, Ri) - bottom center of inner circle
-  3. Arc CW along inner circle to (x_orange_green, -y_inner)
-  4. Vertical line down to (x_orange_green, -y_outer)
-  5. Arc CCW along outer circle back to start
-
-POINT FORMULAS:
-
-Point 1: (0, Ro)
-  = (0, Ri + W)
-
-Point 2: (0, Ri)
-
-Point 3: (x_orange_green, -√(Ri² - x_orange_green²))
-  = (W(2G+1), -√[Ri² - W²(2G+1)²])
-
-Point 4: (x_orange_green, -√(Ro² - x_orange_green²))
-  = (W(2G+1), -√[(Ri+W)² - W²(2G+1)²])
-
-CURRENT VALUES (W=100, Ri=200, G=1/3):
-  Point 1: (0, 300)
-  Point 2: (0, 200)
-  Point 3: (166.667, -110.553)
-  Point 4: (166.667, -249.444)
--->
+  <!-- Green ring segment (right) - 180° rotation of orange -->
+  <!-- Vertices: (0,Ro), (0,Ri), (W(2G+1),-y_inner), (W(2G+1),-y_outer) -->
   <path class="green" d="
     M 0 300
     L 0 200
@@ -184,73 +41,9 @@ CURRENT VALUES (W=100, Ri=200, G=1/3):
     Z
   "/>
 
-<!--═══════════════════════════════════════════════════════════════════════
-BLUE SHAPE (CENTER) - Complex stepped shape with diagonal edges
-═══════════════════════════════════════════════════════════════════════
-
-PATH STRUCTURE: 10-vertex closed path with 180° rotational symmetry
-  1. Start on outer circle at x = x_blue_inner
-  2. Arc CW along outer circle to x = x_blue_outer
-  3. Vertical line toward center to y = diagonal_top(x_blue_inner)
-  4. Pie arc (radius W) to endpoint on bottom diagonal
-  5. Diagonal line along bottom diagonal to x = -x_blue_inner
-  6. Vertical line away from center to outer circle
-  7-10. Symmetric pattern for bottom half (180° rotation)
-
-POINT FORMULAS:
-
-Point 1: (x_blue_inner, -√(Ro² - x_blue_inner²))
-  = (GW, -√[(Ri+W)² - G²W²])
-
-Point 2: (x_blue_outer, -√(Ro² - x_blue_outer²))
-  = (W(G+1), -√[(Ri+W)² - W²(G+1)²])
-
-Point 3: (x_blue_outer, s×x_blue_inner - c)
-  = (W(G+1), s×GW - c)
-  where s and c are the diagonal slope and intercept
-
-Point 4: (x_blue_inner, s×x_blue_inner - c) + W × u_perp
-  = (GW, s×GW - c) + W × (-s, 1)/√(s²+1)
-  = (GW + W×(-s)/√(s²+1), s×GW - c + W/√(s²+1))
-  = (GW - Ws/√(s²+1), s×GW - c + W/√(s²+1))
-
-Point 5: (-x_blue_inner, s×(-x_blue_inner) + c)
-  = (-GW, -s×GW + c)
-
-Point 6: (-x_blue_inner, √(Ro² - x_blue_inner²))
-  = (-GW, √[(Ri+W)² - G²W²])
-
-Point 7: (-x_blue_outer, √(Ro² - x_blue_outer²))
-  = (-W(G+1), √[(Ri+W)² - W²(G+1)²])
-
-Point 8: (-x_blue_outer, s×(-x_blue_inner) + c)
-  = (-W(G+1), -s×GW + c)
-
-Point 9: (-x_blue_inner, s×(-x_blue_inner) + c) - W × u_perp
-  = (-GW, -s×GW + c) - W × (-s, 1)/√(s²+1)
-  = (-GW + Ws/√(s²+1), -s×GW + c - W/√(s²+1))
-
-Point 10: (x_blue_inner, s×x_blue_inner - c)
-  = (GW, s×GW - c)
-
-CURRENT VALUES (W=100, Ri=200, G=1/3, s=-0.6672, c=60.107):
-  u_perp = (0.6672, 1)/1.202 = (0.555, 0.832)
-
-  Point 1:  (33.333, -298.145)
-  Point 2:  (133.333, -268.743)
-  Point 3:  (133.333, -82.347)
-  Point 4:  (33.333 + 55.5, -82.347 + 83.2) = (88.833, 0.853)
-  Point 5:  (-33.333, 82.347)
-  Point 6:  (-33.333, 298.145)
-  Point 7:  (-133.333, 268.743)
-  Point 8:  (-133.333, 82.347)
-  Point 9:  (-33.333 - 55.5, 82.347 - 83.2) = (-88.833, -0.853)
-  Point 10: (33.333, -82.347)
-
-ARC PARAMETERS:
-  - Outer circle arcs: radius = Ro = Ri + W
-  - Pie arcs: radius = W
--->
+  <!-- Blue stepped shape (center) - 10 vertices with diagonal edges -->
+  <!-- Top section: outer arc → vertical → pie arc → diagonal -->
+  <!-- Bottom section: vertical → outer arc → vertical → pie arc → diagonal -->
   <path class="blue" d="
     M 33.333 -298.145
     A 300 300 0 0 1 133.333 -268.743
