@@ -55,9 +55,9 @@ def generate_logo_path(W, Ri, G, color):
         y4 = -math.sqrt(Ro**2 - x_boundary**2)
 
         path = f"M 0,{y1} L 0,{y2} "
-        path += f"A {Ri},{Ri} 0 0 1 {x_boundary},{y3} "
+        path += f"A {Ri},{Ri} 0 0 0 {x_boundary},{y3} "
         path += f"L {x_boundary},{y4} "
-        path += f"A {Ro},{Ro} 0 0 0 0,{y1} Z"
+        path += f"A {Ro},{Ro} 0 0 1 0,{y1} Z"
 
     elif color == "blue":
         # Blue shape (center, complex)
