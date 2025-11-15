@@ -133,17 +133,19 @@ def generate_single_logo(W, Ri, G, tx, ty, scale):
     return svg
 
 def generate_grid():
-    """Generate complete 4x4 grid SVG with all three parameters varying."""
+    """Generate complete 4x4 grid SVG with two parameters varying."""
     # Parameter grid design for condensed logos:
-    # Rows: W varies (80, 100, 120, 140)
+    # W = 100 (CONSTANT - for direct comparison)
+    # Rows: Ri varies (155, 170, 190, 210) - Ri/W = 1.55, 1.70, 1.90, 2.10
     # Columns: G varies (0.10, 0.15, 0.20, 0.25)
-    # Ri/W ratio: increases across columns (1.35, 1.50, 1.70, 1.90)
-    # Lower Ri/W ratios = more condensed (smaller inner circle relative to width)
-    # Lower G values = narrower gaps (more solid appearance)
+    #
+    # This allows clear visual comparison:
+    # - Moving DOWN a column: see effect of increasing Ri (G constant)
+    # - Moving RIGHT across a row: see effect of increasing G (Ri constant)
 
-    W_values = [80, 100, 120, 140]
+    W = 100  # Constant for all logos
+    Ri_values = [155, 170, 190, 210]  # Corresponds to Ri/W = 1.55, 1.70, 1.90, 2.10
     G_values = [0.10, 0.15, 0.20, 0.25]
-    Ri_W_ratios = [1.35, 1.50, 1.70, 1.90]  # More condensed than previous grid
 
     # Grid layout
     cell_size = 400
@@ -151,11 +153,11 @@ def generate_grid():
 
     svg = f'<svg width="{total_size}" height="{total_size}" viewBox="0 0 {total_size} {total_size}" xmlns="http://www.w3.org/2000/svg">\n'
     svg += '  <!-- 4x4 Logo Parameter Exploration Grid -->\n'
-    svg += '  <!-- Condensed logos with all three parameters varying systematically -->\n'
-    svg += '  <!-- Rows: W = 80, 100, 120, 140 -->\n'
-    svg += '  <!-- Columns: G = 0.10, 0.15, 0.20, 0.25 -->\n'
-    svg += '  <!-- Ri/W ratio: 1.35, 1.50, 1.70, 1.90 (increases across columns) -->\n'
-    svg += '  <!-- Slopes range from 13.7° to 33.6° (very gentle) -->\n\n'
+    svg += '  <!-- Two parameters vary, one constant for direct comparison -->\n'
+    svg += '  <!-- W = 100 (CONSTANT) -->\n'
+    svg += '  <!-- Rows: Ri = 155, 170, 190, 210 (Ri/W ratio increases down) -->\n'
+    svg += '  <!-- Columns: G = 0.10, 0.15, 0.20, 0.25 (gap proportion increases right) -->\n'
+    svg += '  <!-- Slopes range from ~20° to ~38° (very gentle) -->\n\n'
 
     # Background
     svg += f'  <rect width="{total_size}" height="{total_size}" fill="#f5f5f5"/>\n\n'
@@ -167,15 +169,13 @@ def generate_grid():
         svg += f'  <text x="{x}" y="30" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold">G = {G:.2f}</text>\n'
 
     # Row headers and logos
-    for row, W in enumerate(W_values):
+    for row, Ri in enumerate(Ri_values):
         # Row header
         y = row * cell_size + cell_size / 2
-        svg += f'\n  <!-- Row {row+1}: W = {W} -->\n'
-        svg += f'  <text x="15" y="{y}" text-anchor="start" font-family="monospace" font-size="16" font-weight="bold" transform="rotate(-90 15 {y})">W = {W}</text>\n'
+        svg += f'\n  <!-- Row {row+1}: Ri = {Ri} -->\n'
+        svg += f'  <text x="15" y="{y}" text-anchor="start" font-family="monospace" font-size="16" font-weight="bold" transform="rotate(-90 15 {y})">Ri = {Ri}</text>\n'
 
         for col, G in enumerate(G_values):
-            # Calculate Ri based on W and the column's ratio
-            Ri = int(W * Ri_W_ratios[col])
 
             # Calculate position
             tx = col * cell_size + cell_size / 2
@@ -228,10 +228,13 @@ if __name__ == "__main__":
     print(f"Generated {output_file}")
     print("\n4x4 Grid - Condensed Logo Parameter Exploration")
     print("=" * 60)
-    print("All three parameters vary systematically:")
-    print("  Rows (W):         80, 100, 120, 140")
+    print("Two parameters vary, one constant for comparison:")
+    print("  W (constant):     100")
+    print("  Rows (Ri):        155, 170, 190, 210")
     print("  Columns (G):      0.10, 0.15, 0.20, 0.25")
-    print("  Ri/W ratios:      1.35, 1.50, 1.70, 1.90")
-    print("\nDiagonal slopes range from 13.7° to 33.6° (very gentle)")
-    print("More condensed logos with smaller inner circles and narrower gaps")
+    print("  Ri/W ratios:      1.55, 1.70, 1.90, 2.10")
+    print("\nVisual comparison:")
+    print("  - Down a column: effect of changing Ri (G constant)")
+    print("  - Across a row: effect of changing G (Ri constant)")
+    print("\nDiagonal slopes range from ~20° to ~38° (very gentle)")
     print("Text labels positioned in upper left corner of each cell")
