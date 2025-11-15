@@ -1,0 +1,196 @@
+<svg width="1600" height="1600" viewBox="0 0 1600 1600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 4x4 Logo Edge Case Exploration Grid -->
+  <!-- Exploring behavior near parameter lower limits -->
+  <!-- W = 100 (CONSTANT) -->
+  <!-- Rows: G = 0.05, 0.08, 0.10, 0.15 (gap proportion) -->
+  <!-- Columns: Ri offset from min = +2, +10, +20, +40 -->
+  <!-- Ri = W(2G+1) + offset for each combination -->
+
+  <rect width="1600" height="1600" fill="#f5f5f5"/>
+
+  <!-- Column headers (offset from min Ri) -->
+  <text x="200.0" y="30" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold">Ri = min+2</text>
+  <text x="600.0" y="30" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold">Ri = min+10</text>
+  <text x="1000.0" y="30" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold">Ri = min+20</text>
+  <text x="1400.0" y="30" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold">Ri = min+40</text>
+
+  <!-- Row 1: G = 0.05, min_Ri = 110.0 -->
+  <text x="15" y="200.0" text-anchor="start" font-family="monospace" font-size="16" font-weight="bold" transform="rotate(-90 15 200.0)">G = 0.05</text>
+  <g transform="translate(200.0,200.0) scale(0.660377358490566)">
+    <path d="M 0,-212 L 0,-112 A 112,112 0 0 0 -110.00000000000001,21.07130750570539 L -110.00000000000001,181.22913673027304 A 212,212 0 0 1 0,-212 Z" fill="#E4572E"/>
+    <path d="M 0,212 L 0,112 A 112,112 0 0 0 110.00000000000001,-21.07130750570539 L 110.00000000000001,-181.22913673027304 A 212,212 0 0 1 0,212 Z" fill="#A1C181"/>
+    <path d="M 5.0,-211.94102953416075 A 212,212 0 0 1 105.0,-184.1711160850148 L 105.0,-49.750668661416654 A 100,100 0 0 1 -5.714285714285715,49.673694960548005 L -5.0,49.750668661416654 L -5.0,211.94102953416075 A 212,212 0 0 1 -105.0,184.1711160850148 L -105.0,49.750668661416654 A 100,100 0 0 1 5.714285714285715,-49.673694960548005 L 5.0,-49.750668661416654 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="10" y="20" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="10" y="32" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=112</text>
+  <text x="10" y="44" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.05</text>
+  <text x="10" y="56" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+2</text>
+  <text x="10" y="68" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=6.2°</text>
+  <g transform="translate(600.0,200.0) scale(0.6363636363636364)">
+    <path d="M 0,-220 L 0,-120 A 120,120 0 0 0 -110.00000000000001,47.95831523312716 L -110.00000000000001,190.5255888325765 A 220,220 0 0 1 0,-220 Z" fill="#E4572E"/>
+    <path d="M 0,220 L 0,120 A 120,120 0 0 0 110.00000000000001,-47.95831523312716 L 110.00000000000001,-190.5255888325765 A 220,220 0 0 1 0,220 Z" fill="#A1C181"/>
+    <path d="M 5.0,-219.9431744792277 A 220,220 0 0 1 105.0,-193.32614929181204 L 105.0,-50.52181514374088 A 100,100 0 0 1 12.551312863078351,49.19266562030816 L -5.0,50.52181514374088 L -5.0,219.9431744792277 A 220,220 0 0 1 -105.0,193.32614929181204 L -105.0,50.52181514374088 A 100,100 0 0 1 -12.551312863078351,-49.19266562030816 L 5.0,-50.52181514374088 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="410" y="20" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="410" y="32" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=120</text>
+  <text x="410" y="44" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.05</text>
+  <text x="410" y="56" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+10</text>
+  <text x="410" y="68" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=4.3°</text>
+  <g transform="translate(1000.0,200.0) scale(0.6086956521739131)">
+    <path d="M 0,-230 L 0,-130 A 130,130 0 0 0 -110.00000000000001,69.28203230275507 L -110.00000000000001,201.99009876724156 A 230,230 0 0 1 0,-230 Z" fill="#E4572E"/>
+    <path d="M 0,230 L 0,130 A 130,130 0 0 0 110.00000000000001,-69.28203230275507 L 110.00000000000001,-201.99009876724156 A 230,230 0 0 1 0,230 Z" fill="#A1C181"/>
+    <path d="M 5.0,-229.94564575133836 A 230,230 0 0 1 105.0,-204.63381929681125 L 105.0,-52.62394328997485 A 100,100 0 0 1 28.359916154162924,44.609355107593046 L -5.0,52.62394328997485 L -5.0,229.94564575133836 A 230,230 0 0 1 -105.0,204.63381929681125 L -105.0,52.62394328997485 A 100,100 0 0 1 -28.359916154162924,-44.609355107593046 L 5.0,-52.62394328997485 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="810" y="20" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="810" y="32" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=130</text>
+  <text x="810" y="44" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.05</text>
+  <text x="810" y="56" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+20</text>
+  <text x="810" y="68" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=13.5°</text>
+  <g transform="translate(1400.0,200.0) scale(0.56)">
+    <path d="M 0,-250 L 0,-150 A 150,150 0 0 0 -110.00000000000001,101.98039027185568 L -110.00000000000001,224.4994432064365 A 250,250 0 0 1 0,-250 Z" fill="#E4572E"/>
+    <path d="M 0,250 L 0,150 A 150,150 0 0 0 110.00000000000001,-101.98039027185568 L 110.00000000000001,-224.4994432064365 A 250,250 0 0 1 0,250 Z" fill="#A1C181"/>
+    <path d="M 5.0,-249.94999499899976 A 250,250 0 0 1 105.0,-226.88102609076856 L 105.0,-58.128089617708575 A 100,100 0 0 1 48.99669958908053,31.673304721512032 L -5.0,58.128089617708575 L -5.0,249.94999499899976 A 250,250 0 0 1 -105.0,226.88102609076856 L -105.0,58.128089617708575 A 100,100 0 0 1 -48.99669958908053,-31.673304721512032 L 5.0,-58.128089617708575 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="1210" y="20" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="1210" y="32" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=150</text>
+  <text x="1210" y="44" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.05</text>
+  <text x="1210" y="56" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+40</text>
+  <text x="1210" y="68" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=26.1°</text>
+
+  <!-- Row 2: G = 0.08, min_Ri = 116.0 -->
+  <text x="15" y="600.0" text-anchor="start" font-family="monospace" font-size="16" font-weight="bold" transform="rotate(-90 15 600.0)">G = 0.08</text>
+  <g transform="translate(200.0,600.0) scale(0.6451612903225806)">
+    <path d="M 0,-217 L 0,-117 A 117,117 0 0 0 -115.99999999999999,15.264337522473868 L -115.99999999999999,183.3930205869351 A 217,217 0 0 1 0,-217 Z" fill="#E4572E"/>
+    <path d="M 0,217 L 0,117 A 117,117 0 0 0 115.99999999999999,-15.264337522473868 L 115.99999999999999,-183.3930205869351 A 217,217 0 0 1 0,217 Z" fill="#A1C181"/>
+    <path d="M 8.0,-216.8524844220144 A 217,217 0 0 1 108.0,-188.2153022471871 L 108.0,-49.68030857745272 A 100,100 0 0 1 3.324809191569793,50.210344593425944 L -8.0,49.68030857745272 L -8.0,216.8524844220144 A 217,217 0 0 1 -108.0,188.2153022471871 L -108.0,49.68030857745272 A 100,100 0 0 1 -3.324809191569793,-50.210344593425944 L 8.0,-49.68030857745272 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="10" y="420" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="10" y="432" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=117</text>
+  <text x="10" y="444" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.08</text>
+  <text x="10" y="456" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+1</text>
+  <text x="10" y="468" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=2.7°</text>
+  <g transform="translate(600.0,600.0) scale(0.6222222222222222)">
+    <path d="M 0,-225 L 0,-125 A 125,125 0 0 0 -115.99999999999999,46.57252408878011 L -115.99999999999999,192.7926347140886 A 225,225 0 0 1 0,-225 Z" fill="#E4572E"/>
+    <path d="M 0,225 L 0,125 A 125,125 0 0 0 115.99999999999999,-46.57252408878011 L 115.99999999999999,-192.7926347140886 A 225,225 0 0 1 0,225 Z" fill="#A1C181"/>
+    <path d="M 8.0,-224.8577328000974 A 225,225 0 0 1 108.0,-197.3854097951518 L 108.0,-51.27213959846466 A 100,100 0 0 1 19.58578637318903,48.0544407016485 L -8.0,51.27213959846466 L -8.0,224.8577328000974 A 225,225 0 0 1 -108.0,197.3854097951518 L -108.0,51.27213959846466 A 100,100 0 0 1 -19.58578637318903,-48.0544407016485 L 8.0,-51.27213959846466 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="410" y="420" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="410" y="432" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=125</text>
+  <text x="410" y="444" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.08</text>
+  <text x="410" y="456" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+9</text>
+  <text x="410" y="468" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=6.7°</text>
+  <g transform="translate(1000.0,600.0) scale(0.5932203389830508)">
+    <path d="M 0,-236 L 0,-136 A 136,136 0 0 0 -115.99999999999999,70.99295739719541 L -115.99999999999999,205.52372125864207 A 236,236 0 0 1 0,-236 Z" fill="#E4572E"/>
+    <path d="M 0,236 L 0,136 A 136,136 0 0 0 115.99999999999999,-70.99295739719541 L 115.99999999999999,-205.52372125864207 A 236,236 0 0 1 0,236 Z" fill="#A1C181"/>
+    <path d="M 8.0,-235.8643678048891 A 236,236 0 0 1 108.0,-209.838032777664 L 108.0,-54.250479706013564 A 100,100 0 0 1 35.32445358617502,41.94398082169545 L -8.0,54.250479706013564 L -8.0,235.8643678048891 A 236,236 0 0 1 -108.0,209.838032777664 L -108.0,54.250479706013564 A 100,100 0 0 1 -35.32445358617502,-41.94398082169545 L 8.0,-54.250479706013564 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="810" y="420" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="810" y="432" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=136</text>
+  <text x="810" y="444" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.08</text>
+  <text x="810" y="456" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+20</text>
+  <text x="810" y="468" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=15.9°</text>
+  <g transform="translate(1400.0,600.0) scale(0.546875)">
+    <path d="M 0,-256 L 0,-156 A 156,156 0 0 0 -115.99999999999999,104.3072384832424 L -115.99999999999999,228.2104292095346 A 256,256 0 0 1 0,-256 Z" fill="#E4572E"/>
+    <path d="M 0,256 L 0,156 A 156,156 0 0 0 115.99999999999999,-104.3072384832424 L 115.99999999999999,-228.2104292095346 A 256,256 0 0 1 0,256 Z" fill="#A1C181"/>
+    <path d="M 8.0,-255.87496946751162 A 256,256 0 0 1 108.0,-232.10342522246412 L 108.0,-60.52880555313486 A 100,100 0 0 1 54.16402040670056,28.177920346820073 L -8.0,60.52880555313486 L -8.0,255.87496946751162 A 256,256 0 0 1 -108.0,232.10342522246412 L -108.0,60.52880555313486 A 100,100 0 0 1 -54.16402040670056,-28.177920346820073 L 8.0,-60.52880555313486 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="1210" y="420" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="1210" y="432" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=156</text>
+  <text x="1210" y="444" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.08</text>
+  <text x="1210" y="456" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+40</text>
+  <text x="1210" y="468" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=27.5°</text>
+
+  <!-- Row 3: G = 0.10, min_Ri = 120.0 -->
+  <text x="15" y="1000.0" text-anchor="start" font-family="monospace" font-size="16" font-weight="bold" transform="rotate(-90 15 1000.0)">G = 0.10</text>
+  <g transform="translate(200.0,1000.0) scale(0.6306306306306306)">
+    <path d="M 0,-222 L 0,-122 A 122,122 0 0 0 -120.0,22.0 L -120.0,186.77258899528056 A 222,222 0 0 1 0,-222 Z" fill="#E4572E"/>
+    <path d="M 0,222 L 0,122 A 122,122 0 0 0 120.0,-22.0 L 120.0,-186.77258899528056 A 222,222 0 0 1 0,222 Z" fill="#A1C181"/>
+    <path d="M 10.0,-221.7746604100658 A 222,222 0 0 1 110.00000000000001,-192.8315326911032 L 110.00000000000001,-50.26542045452228 A 100,100 0 0 1 12.497424176399079,49.703389043656394 L -10.0,50.26542045452228 L -10.0,221.7746604100658 A 222,222 0 0 1 -110.00000000000001,192.8315326911032 L -110.00000000000001,50.26542045452228 A 100,100 0 0 1 -12.497424176399079,-49.703389043656394 L 10.0,-50.26542045452228 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="10" y="820" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="10" y="832" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=122</text>
+  <text x="10" y="844" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.10</text>
+  <text x="10" y="856" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+2</text>
+  <text x="10" y="868" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=1.4°</text>
+  <g transform="translate(600.0,1000.0) scale(0.6086956521739131)">
+    <path d="M 0,-230 L 0,-130 A 130,130 0 0 0 -120.0,50.0 L -120.0,196.21416870348583 A 230,230 0 0 1 0,-230 Z" fill="#E4572E"/>
+    <path d="M 0,230 L 0,130 A 130,130 0 0 0 120.0,-50.0 L 120.0,-196.21416870348583 A 230,230 0 0 1 0,230 Z" fill="#A1C181"/>
+    <path d="M 10.0,-229.78250586152114 A 230,230 0 0 1 110.00000000000001,-201.99009876724156 L 110.00000000000001,-52.39637028918155 A 100,100 0 0 1 26.64996376526988,46.207781279680916 L -10.0,52.39637028918155 L -10.0,229.78250586152114 A 230,230 0 0 1 -110.00000000000001,201.99009876724156 L -110.00000000000001,52.39637028918155 A 100,100 0 0 1 -26.64996376526988,-46.207781279680916 L 10.0,-52.39637028918155 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="410" y="820" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="410" y="832" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=130</text>
+  <text x="410" y="844" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.10</text>
+  <text x="410" y="856" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+10</text>
+  <text x="410" y="868" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=9.6°</text>
+  <g transform="translate(1000.0,1000.0) scale(0.5833333333333334)">
+    <path d="M 0,-240 L 0,-140 A 140,140 0 0 0 -120.0,72.11102550927978 L -120.0,207.84609690826528 A 240,240 0 0 1 0,-240 Z" fill="#E4572E"/>
+    <path d="M 0,240 L 0,140 A 140,140 0 0 0 120.0,-72.11102550927978 L 120.0,-207.84609690826528 A 240,240 0 0 1 0,240 Z" fill="#A1C181"/>
+    <path d="M 10.0,-239.79157616563597 A 240,240 0 0 1 110.00000000000001,-213.3072900770154 L 110.00000000000001,-55.47825885429995 A 100,100 0 0 1 39.71812067809246,40.00385100593688 L -10.0,55.47825885429995 L -10.0,239.79157616563597 A 240,240 0 0 1 -110.00000000000001,213.3072900770154 L -110.00000000000001,55.47825885429995 A 100,100 0 0 1 -39.71812067809246,-40.00385100593688 L 10.0,-55.47825885429995 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="810" y="820" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="810" y="832" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=140</text>
+  <text x="810" y="844" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.10</text>
+  <text x="810" y="856" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+20</text>
+  <text x="810" y="868" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=17.3°</text>
+  <g transform="translate(1400.0,1000.0) scale(0.5384615384615384)">
+    <path d="M 0,-260 L 0,-160 A 160,160 0 0 0 -120.0,105.83005244258362 L -120.0,230.65125189341592 A 260,260 0 0 1 0,-260 Z" fill="#E4572E"/>
+    <path d="M 0,260 L 0,160 A 160,160 0 0 0 120.0,-105.83005244258362 L 120.0,-230.65125189341592 A 260,260 0 0 1 0,260 Z" fill="#A1C181"/>
+    <path d="M 10.0,-259.8076211353316 A 260,260 0 0 1 110.00000000000001,-235.58437978779492 L 110.00000000000001,-62.21551116018974 A 100,100 0 0 1 57.49716868481923,25.784596606368304 L -10.0,62.21551116018974 L -10.0,259.8076211353316 A 260,260 0 0 1 -110.00000000000001,235.58437978779492 L -110.00000000000001,62.21551116018974 A 100,100 0 0 1 -57.49716868481923,-25.784596606368304 L 10.0,-62.21551116018974 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="1210" y="820" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="1210" y="832" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=160</text>
+  <text x="1210" y="844" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.10</text>
+  <text x="1210" y="856" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+40</text>
+  <text x="1210" y="868" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=28.4°</text>
+
+  <!-- Row 4: G = 0.15, min_Ri = 130.0 -->
+  <text x="15" y="1400.0" text-anchor="start" font-family="monospace" font-size="16" font-weight="bold" transform="rotate(-90 15 1400.0)">G = 0.15</text>
+  <g transform="translate(200.0,1400.0) scale(0.603448275862069)">
+    <path d="M 0,-232 L 0,-132 A 132,132 0 0 0 -130.0,22.891046284519195 L -130.0,192.1561864733998 A 232,232 0 0 1 0,-232 Z" fill="#E4572E"/>
+    <path d="M 0,232 L 0,132 A 132,132 0 0 0 130.0,-22.891046284519195 L 130.0,-192.1561864733998 A 232,232 0 0 1 0,232 Z" fill="#A1C181"/>
+    <path d="M 15.0,-231.51457837466737 A 232,232 0 0 1 114.99999999999999,-201.4919353224838 L 114.99999999999999,-52.270336723647425 A 100,100 0 0 1 27.432151734727032,46.95386195411829 L -15.0,52.270336723647425 L -15.0,231.51457837466737 A 232,232 0 0 1 -114.99999999999999,201.4919353224838 L -114.99999999999999,52.270336723647425 A 100,100 0 0 1 -27.432151734727032,-46.95386195411829 L 15.0,-52.270336723647425 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="10" y="1220" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="10" y="1232" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=132</text>
+  <text x="10" y="1244" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.15</text>
+  <text x="10" y="1256" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+2</text>
+  <text x="10" y="1268" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=7.1°</text>
+  <g transform="translate(600.0,1400.0) scale(0.5833333333333334)">
+    <path d="M 0,-240 L 0,-140 A 140,140 0 0 0 -130.0,51.96152422706632 L -130.0,201.74241001832016 A 240,240 0 0 1 0,-240 Z" fill="#E4572E"/>
+    <path d="M 0,240 L 0,140 A 140,140 0 0 0 130.0,-51.96152422706632 L 130.0,-201.74241001832016 A 240,240 0 0 1 0,240 Z" fill="#A1C181"/>
+    <path d="M 15.0,-239.53079134006967 A 240,240 0 0 1 114.99999999999999,-210.65374432940897 L 114.99999999999999,-55.194037647389244 A 100,100 0 0 1 38.93318945498426,41.899744040790104 L -15.0,55.194037647389244 L -15.0,239.53079134006967 A 240,240 0 0 1 -114.99999999999999,210.65374432940897 L -114.99999999999999,55.194037647389244 A 100,100 0 0 1 -38.93318945498426,-41.899744040790104 L 15.0,-55.194037647389244 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="410" y="1220" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="410" y="1232" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=140</text>
+  <text x="410" y="1244" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.15</text>
+  <text x="410" y="1256" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+10</text>
+  <text x="410" y="1268" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=13.8°</text>
+  <g transform="translate(1000.0,1400.0) scale(0.56)">
+    <path d="M 0,-250 L 0,-150 A 150,150 0 0 0 -130.0,74.83314773547883 L -130.0,213.5415650406262 A 250,250 0 0 1 0,-250 Z" fill="#E4572E"/>
+    <path d="M 0,250 L 0,150 A 150,150 0 0 0 130.0,-74.83314773547883 L 130.0,-213.5415650406262 A 250,250 0 0 1 0,250 Z" fill="#A1C181"/>
+    <path d="M 15.0,-249.5495942693556 A 250,250 0 0 1 114.99999999999999,-221.97972880423114 L 114.99999999999999,-58.971469471799246 A 100,100 0 0 1 49.9770598750055,34.71206847644586 L -15.0,58.971469471799246 L -15.0,249.5495942693556 A 250,250 0 0 1 -114.99999999999999,221.97972880423114 L -114.99999999999999,58.971469471799246 A 100,100 0 0 1 -49.9770598750055,-34.71206847644586 L 15.0,-58.971469471799246 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="810" y="1220" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="810" y="1232" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=150</text>
+  <text x="810" y="1244" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.15</text>
+  <text x="810" y="1256" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+20</text>
+  <text x="810" y="1268" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=20.5°</text>
+  <g transform="translate(1400.0,1400.0) scale(0.5185185185185185)">
+    <path d="M 0,-270 L 0,-170 A 170,170 0 0 0 -130.0,109.54451150103323 L -130.0,236.64319132398464 A 270,270 0 0 1 0,-270 Z" fill="#E4572E"/>
+    <path d="M 0,270 L 0,170 A 170,170 0 0 0 130.0,-109.54451150103323 L 130.0,-236.64319132398464 A 270,270 0 0 1 0,270 Z" fill="#A1C181"/>
+    <path d="M 15.0,-269.58301133417143 A 270,270 0 0 1 114.99999999999999,-244.28467000612216 L 114.99999999999999,-66.70153512965892 A 100,100 0 0 1 65.49330868442085,19.61431380957002 L -15.0,66.70153512965892 L -15.0,269.58301133417143 A 270,270 0 0 1 -114.99999999999999,244.28467000612216 L -114.99999999999999,66.70153512965892 A 100,100 0 0 1 -65.49330868442085,-19.61431380957002 L 15.0,-66.70153512965892 Z" fill="#4F6D7A"/>
+  </g>
+  <text x="1210" y="1220" text-anchor="start" font-family="monospace" font-size="10" fill="#333">W=100</text>
+  <text x="1210" y="1232" text-anchor="start" font-family="monospace" font-size="10" fill="#333">Ri=170</text>
+  <text x="1210" y="1244" text-anchor="start" font-family="monospace" font-size="10" fill="#333">G=0.15</text>
+  <text x="1210" y="1256" text-anchor="start" font-family="monospace" font-size="9" fill="#999">margin=+40</text>
+  <text x="1210" y="1268" text-anchor="start" font-family="monospace" font-size="9" fill="#999">angle=30.3°</text>
+
+  <!-- Grid lines -->
+  <line x1="400" y1="0" x2="400" y2="1600" stroke="#ccc" stroke-width="1"/>
+  <line x1="0" y1="400" x2="1600" y2="400" stroke="#ccc" stroke-width="1"/>
+  <line x1="800" y1="0" x2="800" y2="1600" stroke="#ccc" stroke-width="1"/>
+  <line x1="0" y1="800" x2="1600" y2="800" stroke="#ccc" stroke-width="1"/>
+  <line x1="1200" y1="0" x2="1200" y2="1600" stroke="#ccc" stroke-width="1"/>
+  <line x1="0" y1="1200" x2="1600" y2="1200" stroke="#ccc" stroke-width="1"/>
+</svg>
