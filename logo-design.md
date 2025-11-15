@@ -293,3 +293,183 @@ Gap 4 = -Gap 2 (mirrored)
 - Experimental version has **wider gaps** (44% increase)
 - Experimental version has **steeper diagonal lines** (slope -0.67 vs -0.48)
 - Experimental version appears more "open" with more white space
+
+## Mathematical Constraints
+
+These constraints define the valid parameter space where the logo geometry remains well-defined.
+
+### Basic Positivity
+
+All parameters must be positive:
+
+```
+W > 0    (positive width)
+Ri > 0   (positive inner radius)
+G > 0    (positive gap proportion)
+```
+
+### Geometric Constraint (Binding)
+
+The critical constraint comes from the orange/green shapes. Their boundaries at x = ±W(2G+1) must lie inside the inner circle of radius Ri:
+
+```
+W(2G+1) ≤ Ri
+```
+
+**Primary constraint: Ri > W(2G+1)**
+
+This is the binding constraint that determines the valid parameter space.
+
+### Derived Constraints
+
+The binding constraint can be rearranged to express limits on any parameter:
+
+**Minimum inner radius** (for given W and G):
+```
+Ri > W(2G+1)
+Ri > W(1 + 2G)
+```
+
+**Maximum width** (for given Ri and G):
+```
+W < Ri/(2G+1)
+W < Ri/(1 + 2G)
+```
+
+**Maximum gap proportion** (for given Ri and W):
+```
+G < (Ri - W)/(2W)
+G < Ri/(2W) - 1/2
+```
+
+### Ratio Constraints
+
+The constraint can also be expressed as a minimum ratio:
+
+```
+Ri/W > 2G+1
+```
+
+This means:
+- For **G = 0** (no gaps): Ri/W > 1.0
+- For **G = 0.1**: Ri/W > 1.2
+- For **G = 0.2**: Ri/W > 1.4
+- For **G = 0.3**: Ri/W > 1.6
+- For **G = 0.5**: Ri/W > 2.0
+- For **G = 1.0**: Ri/W > 3.0
+
+**Practical minimum: Ri/W ≥ 1.0** (always required)
+
+**Specific minimum: Ri/W > 1 + 2G** (depends on gap size)
+
+### Boundary Cases
+
+**Case 1: G → 0⁺** (minimum gap, shapes almost touching)
+- Constraint becomes: Ri > W
+- Gaps become infinitesimally small
+- Shapes touch with zero white space
+- Logo remains geometrically valid
+
+**Case 2: G → (Ri-W)/(2W)** (maximum gap)
+- Orange/green boundaries reach exactly to inner circle: W(2G+1) = Ri
+- This is the limiting case
+- Beyond this point, boundaries would exceed inner circle radius
+- Geometry breaks
+
+**Case 3: Ri → W⁺** (minimum inner radius)
+- From Ri > W(2G+1) with Ri → W: W > W(2G+1)
+- This gives: 1 > 2G+1, or G < 0
+- Contradicts G > 0
+- Therefore: **cannot have Ri arbitrarily close to W**
+- Minimum Ri depends on chosen G: **Ri_min = W(1 + 2G)**
+
+**Case 4: Ri → ∞** (very large inner radius)
+- No upper bound on Ri
+- Logo becomes a thin ring with large inner circle
+- Geometrically valid, aesthetically questionable
+
+### Validation Examples
+
+**Original PNG: W=97, Ri=163, G≈0.232**
+
+Check binding constraint:
+```
+Ri > W(2G+1)
+163 > 97(2×0.232+1)
+163 > 97(1.464)
+163 > 142.0  ✓
+```
+
+Check ratio:
+```
+Ri/W = 163/97 ≈ 1.680
+Required: > 2G+1 = 1.464  ✓
+```
+
+Check maximum G:
+```
+G_max = (Ri-W)/(2W) = (163-97)/(2×97) = 66/194 ≈ 0.340
+G = 0.232 < 0.340  ✓
+```
+
+**Experimental: W=100, Ri=200, G=1/3**
+
+Check binding constraint:
+```
+Ri > W(2G+1)
+200 > 100(2×(1/3)+1)
+200 > 100(5/3)
+200 > 166.67  ✓
+```
+
+Check ratio:
+```
+Ri/W = 200/100 = 2.0
+Required: > 2G+1 = 5/3 ≈ 1.667  ✓
+```
+
+Check maximum G:
+```
+G_max = (Ri-W)/(2W) = (200-100)/(2×100) = 100/200 = 0.5
+G = 0.333 < 0.5  ✓
+```
+
+### Parameter Space Visualization
+
+For a given choice of two parameters, the third is constrained:
+
+**If you choose W and G:**
+- Must have: **Ri > W(1 + 2G)**
+- Example: W=100, G=0.3 → Ri must be > 160
+
+**If you choose Ri and G:**
+- Must have: **W < Ri/(1 + 2G)**
+- Example: Ri=200, G=0.3 → W must be < 125
+
+**If you choose Ri and W:**
+- Must have: **G < (Ri-W)/(2W)**
+- Example: Ri=200, W=100 → G must be < 0.5
+
+### Breaking Points
+
+The geometry **breaks** when:
+
+1. **G ≥ (Ri-W)/(2W)** — gaps too large, orange/green boundaries exceed inner circle
+2. **Ri ≤ W(1+2G)** — inner radius too small, points on inner circle become imaginary
+3. **G ≤ 0** — negative or zero gaps, shapes overlap or collapse
+4. **W ≤ 0** or **Ri ≤ 0** — negative dimensions, nonsensical
+
+### Safe Parameter Ranges
+
+For aesthetically pleasing and geometrically robust logos:
+
+**Conservative recommendations:**
+- **Ri/W**: between 1.5 and 3.0 (inner circle 1.5× to 3× the width)
+- **G**: between 0.15 and 0.4 (gaps 15% to 40% of width)
+- **Gap width (GW)**: between 0.15W and 0.4W
+
+**Extreme but valid ranges:**
+- **Ri/W**: from (1+2G) to ∞ (minimum depends on G, no maximum)
+- **G**: from 0⁺ to (Ri-W)/(2W) (minimum near zero, maximum depends on Ri/W)
+
+**Original and experimental both fall within conservative ranges.**
